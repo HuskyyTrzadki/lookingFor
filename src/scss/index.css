@@ -1,0 +1,205 @@
+.root {
+  opacity: 40%;
+  z-index: 100;
+}
+
+html, body, #root {
+  margin: 0;
+  height: 99%;
+  background-size: cover;
+  z-index: 300000000000000;
+}
+
+.navbar {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  height: 10%;
+}
+
+.startingPage {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  height: 100%;
+  font-size: 4px;
+}
+
+.startingPage .animated-grid {
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+  height: 90%;
+  width: 98%;
+  margin: auto;
+  gap: 0.2rem;
+  -ms-grid-columns: (minmax(45vw, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(45vw, 1fr));
+  border: white 5px solid;
+  z-index: 0;
+}
+
+.startingPage .animated-grid .loginCircle {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+  -webkit-animation: circleEntrance 2000ms ease-out;
+          animation: circleEntrance 2000ms ease-out;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  border: white 5px solid;
+  margin: auto;
+  left: 50%;
+  display: block;
+  top: 50%;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  font-size: 10px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
+  background-color: red;
+}
+
+@media only screen and (max-width: 550px) {
+  .startingPage .animated-grid .loginCircle {
+    width: 66vw;
+    height: 66vw;
+  }
+  .startingPage .animated-grid .loginCircle .quarter {
+    width: 33vw;
+    height: 33vw;
+  }
+  .startingPage .animated-grid .loginCircle .half {
+    width: 66vw;
+    height: 66vw;
+  }
+}
+
+@media only screen and (min-width: 550px) {
+  .startingPage .animated-grid .loginCircle {
+    width: 34vw;
+    height: 34vw;
+  }
+  .startingPage .animated-grid .loginCircle .quarter {
+    width: 17vw;
+    height: 17vw;
+  }
+  .startingPage .animated-grid .loginCircle .half {
+    width: 34vw;
+    height: 34vw;
+  }
+}
+
+.startingPage .animated-grid .loginCircle .quarter, .startingPage .animated-grid .loginCircle .half {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.startingPage .animated-grid .loginCircle #fb {
+  background-image: url(../assets/fb.png);
+  background-size: cover;
+  background-position: top;
+}
+
+.startingPage .animated-grid .loginCircle #mail {
+  background-image: url(../assets/mail.png);
+  background-size: cover;
+  background-position: 0  0;
+}
+
+.startingPage .animated-grid .loginCircle #decline {
+  background-color: darkblue;
+  font-size: 40px;
+  color: white;
+}
+
+@-webkit-keyframes platesEntrance {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes platesEntrance {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes circleEntrance {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes circleEntrance {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.startingPage .animated-grid .plate {
+  -webkit-filter: grayscale(0.9);
+          filter: grayscale(0.9);
+  -webkit-animation: platesEntrance 500ms ease-out;
+          animation: platesEntrance 500ms ease-out;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+}
+
+.startingPage .animated-grid .plate:nth-child(1) {
+  background-image: url(../assets/adventure.jpg);
+  background-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  -webkit-animation-delay: 100ms;
+          animation-delay: 100ms;
+}
+
+.startingPage .animated-grid .plate:nth-child(2) {
+  background-image: url(../assets/partying.jpg);
+  background-size: cover;
+  background-position: top;
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+
+.startingPage .animated-grid .plate:nth-child(3) {
+  background-image: url(../assets/sport.jpg);
+  background-size: cover;
+  background-position: top;
+  -webkit-animation-delay: 300ms;
+          animation-delay: 300ms;
+}
+
+.startingPage .animated-grid .plate:nth-child(4) {
+  background-image: url(../assets/studying.jpg);
+  background-size: cover;
+  background-position: top;
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms;
+}
+/*# sourceMappingURL=index.css.map */

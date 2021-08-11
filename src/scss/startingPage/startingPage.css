@@ -1,0 +1,92 @@
+.startingPage {
+  text-align: center;
+  max-height: 1080px;
+  font-size: 4px;
+}
+
+.startingPage .loginCircle
+.animated-grid {
+  display: -ms-grid;
+  display: grid;
+  position: absolute;
+  height: 90%;
+  width: 98%;
+  gap: 0.5rem;
+  -ms-grid-columns: (minmax(45vw, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(45vw, 1fr));
+  border: white 5px solid;
+  z-index: 0;
+}
+
+@-webkit-keyframes platesEntrance {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes platesEntrance {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.startingPage .loginCircle
+.animated-grid .plate {
+  -webkit-animation: platesEntrance 500ms ease-out;
+          animation: platesEntrance 500ms ease-out;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+}
+
+.startingPage .loginCircle
+.animated-grid .plate:nth-child(1) {
+  background-image: url(../assets/adventure.jpg);
+  background-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  -webkit-animation-delay: 100ms;
+          animation-delay: 100ms;
+}
+
+.startingPage .loginCircle
+.animated-grid .plate:nth-child(2) {
+  background-image: url(../assets/partying.jpg);
+  background-size: cover;
+  background-position: top;
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+
+.startingPage .loginCircle
+.animated-grid .plate:nth-child(3) {
+  background-image: url(../assets/sport.jpg);
+  background-size: cover;
+  background-position: top;
+  -webkit-animation-delay: 300ms;
+          animation-delay: 300ms;
+}
+
+.startingPage .loginCircle
+.animated-grid .plate:nth-child(4) {
+  background-image: url(../assets/studying.jpg);
+  background-size: cover;
+  background-position: top;
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms;
+}
+/*# sourceMappingURL=startingPage.css.map */

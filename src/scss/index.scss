@@ -1,0 +1,179 @@
+
+.root{
+  opacity: 40%;
+  z-index: 100;
+  
+}
+
+html, body,#root {
+  margin: 0;
+  height: 99%;
+  background-size: cover;
+  z-index:300000000000000;
+  
+}
+.navbar{
+  filter: grayscale(1);  
+
+  height: 10%;
+}
+.startingPage{
+  height: 100%;
+  width: 100%;
+
+  
+  text-align: center;
+  height: 100%;
+  font-size: 4px;
+  
+.animated-grid {
+  
+  display: grid;
+  position: relative;
+
+  height: 90%;
+  width: 98%;
+  margin: auto;
+  gap:0.2rem;
+  grid-template-columns:repeat(auto-fit,minmax(45vw,1fr));
+  
+  border: white 5px solid;
+  z-index: 0;
+  
+
+  .loginCircle{
+      @media only screen and (max-width: 550px) {
+      width: 66vw;
+      height: 66vw;
+      .quarter{
+        width: 33vw;
+        height: 33vw;
+      }
+      .half{
+        width: 66vw;
+        height: 66vw;
+      }
+    }
+      @media only screen and (min-width: 550px) {
+        width: 34vw;
+        height: 34vw;
+        .quarter{
+          width: 17vw;
+          height: 17vw;
+        }
+        .half{
+          width: 34vw;
+          height: 34vw;
+        }
+      }
+    filter:grayscale(0);
+    animation: circleEntrance 2000ms ease-out;
+    animation-fill-mode: backwards;
+    border: white 5px solid;
+    margin: auto;
+    left: 50%;
+    display: block;
+    top: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-size: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 2;
+    background-color: red;
+    
+   
+      .quarter,.half {
+        float: left;
+        margin: 0;
+        padding: 0;   
+      }
+      #fb {
+        background-image:url(../assets/fb.png);
+        background-size: cover;
+        background-position: top;
+      }
+      
+      #mail {
+        background-image:url(../assets/mail.png);
+        background-size: cover;
+        background-position: 0  0 ;
+      }
+      
+      #decline {
+        background-color:darkblue ;
+        font-size: 40px;//popraw bo sie nie zmienia jak zmniejsasz okno
+        color: white;
+
+
+      }
+      
+      
+    
+  }
+ 
+@keyframes platesEntrance {
+  from{
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to{
+    opacity: 1;
+    transform: scale(1);
+
+  }
+  
+}
+@keyframes circleEntrance {
+  from{
+
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+
+  }
+  
+}
+
+.plate {
+  filter: grayscale(0.9);
+  
+  animation: platesEntrance 500ms ease-out;
+  animation-fill-mode: backwards;
+  
+  &:nth-child(1){
+    background-image: url(../assets/adventure.jpg);
+    background-position: center;
+    object-fit: cover;
+    background-size: cover;
+    animation-delay: 100ms;
+
+  }
+  &:nth-child(2){
+    background-image: url(../assets/partying.jpg);
+    background-size: cover;
+    background-position: top;
+    animation-delay: 200ms;
+
+  }
+  &:nth-child(3){
+    background-image: url(../assets/sport.jpg);
+    background-size: cover;
+    background-position: top;
+    animation-delay: 300ms;
+    //przerzuc pliki do jednego index.css
+  }
+  &:nth-child(4){
+    background-image: url(../assets/studying.jpg);
+    background-size: cover;
+    background-position: top;
+    animation-delay: 400ms;
+
+  }
+
+}
+
+}
+}

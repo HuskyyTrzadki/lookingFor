@@ -1,0 +1,70 @@
+.startingPage{
+    text-align: center;
+    max-height: 1080px;
+    font-size: 4px;
+  .loginCircle
+  
+  .animated-grid {  
+    display: grid;
+    position: absolute;
+    height: 90%;
+    width: 98%;
+    gap:0.5rem;
+    grid-template-columns:repeat(auto-fit,minmax(45vw,1fr));
+    
+    border: white 5px solid;
+    z-index: 0;
+    
+   
+  @keyframes platesEntrance {
+    from{
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    to{
+      opacity: 1;
+      transform: scale(1);
+  
+    }
+    
+  }
+  
+  .plate {
+    
+    animation: platesEntrance 500ms ease-out;
+    animation-fill-mode: backwards;
+    
+    &:nth-child(1){
+      background-image: url(../assets/adventure.jpg);
+      background-position: center;
+      object-fit: cover;
+      background-size: cover;
+      animation-delay: 100ms;
+  
+    }
+    &:nth-child(2){
+      background-image: url(../assets/partying.jpg);
+      background-size: cover;
+      background-position: top;
+      animation-delay: 200ms;
+  
+    }
+    &:nth-child(3){
+      background-image: url(../assets/sport.jpg);
+      background-size: cover;
+      background-position: top;
+      animation-delay: 300ms;
+  
+    }
+    &:nth-child(4){
+      background-image: url(../assets/studying.jpg);
+      background-size: cover;
+      background-position: top;
+      animation-delay: 400ms;
+  
+    }
+  
+  }
+  
+  }
+  }
