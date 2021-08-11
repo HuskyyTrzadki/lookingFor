@@ -5,14 +5,17 @@
 
 html, body, #root {
   margin: 0;
-  height: 99%;
+  height: 98.5%;
   background-size: cover;
   z-index: 300000000000000;
 }
 
 .navbar {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
+  font-size: 400%;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#0066ff), to(#99ccff));
+  background: linear-gradient(to right, #0066ff, #99ccff);
   height: 10%;
 }
 
@@ -21,28 +24,29 @@ html, body, #root {
   width: 100%;
   text-align: center;
   height: 100%;
-  font-size: 4px;
+  font-size: 0.4rem;
 }
 
 .startingPage .animated-grid {
   display: -ms-grid;
   display: grid;
   position: relative;
-  height: 90%;
+  height: 93%;
   width: 98%;
   margin: auto;
-  gap: 0.2rem;
+  row-gap: 10px;
   -ms-grid-columns: (minmax(45vw, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(45vw, 1fr));
-  border: white 5px solid;
   z-index: 0;
 }
 
 .startingPage .animated-grid .loginCircle {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   -webkit-filter: grayscale(0);
           filter: grayscale(0);
-  -webkit-animation: circleEntrance 2000ms ease-out;
-          animation: circleEntrance 2000ms ease-out;
+  -webkit-animation: circleEntrance 1000ms ease-out;
+          animation: circleEntrance 1000ms ease-out;
   -webkit-animation-fill-mode: backwards;
           animation-fill-mode: backwards;
   border: white 5px solid;
@@ -59,7 +63,6 @@ html, body, #root {
   border-radius: 50%;
   overflow: hidden;
   z-index: 2;
-  background-color: red;
 }
 
 @media only screen and (max-width: 550px) {
@@ -104,16 +107,41 @@ html, body, #root {
   background-position: top;
 }
 
+.startingPage .animated-grid .loginCircle #fb:hover {
+  -webkit-filter: brightness(1.4);
+          filter: brightness(1.4);
+}
+
 .startingPage .animated-grid .loginCircle #mail {
   background-image: url(../assets/mail.png);
   background-size: cover;
   background-position: 0  0;
 }
 
+.startingPage .animated-grid .loginCircle #mail:hover {
+  -webkit-filter: brightness(1.4);
+          filter: brightness(1.4);
+}
+
 .startingPage .animated-grid .loginCircle #decline {
-  background-color: darkblue;
-  font-size: 40px;
+  background: -webkit-gradient(linear, left top, right top, from(#0066ff), to(#99ccff));
+  background: linear-gradient(to right, #0066ff, #99ccff);
+  font-size: 20px;
   color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: top;
+      -ms-flex-align: top;
+          align-items: top;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.startingPage .animated-grid .loginCircle #decline:hover {
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
 }
 
 @-webkit-keyframes platesEntrance {
@@ -142,21 +170,39 @@ html, body, #root {
   }
 }
 
-@-webkit-keyframes circleEntrance {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+@-webkit-keyframes greyBackground {}
 
-@keyframes circleEntrance {
-  from {
+@keyframes greyBackground {}@-webkit-keyframes circleEntrance {
+  0% {
     opacity: 0;
+    top: 50%;
+    left: 0%;
   }
-  to {
+  80% {
     opacity: 1;
+    top: 50%;
+    left: 53%;
+  }
+  100% {
+    opacity: 1;
+    top: 50%;
+    right: 50%;
+  }
+}@keyframes circleEntrance {
+  0% {
+    opacity: 0;
+    top: 50%;
+    left: 0%;
+  }
+  80% {
+    opacity: 1;
+    top: 50%;
+    left: 53%;
+  }
+  100% {
+    opacity: 1;
+    top: 50%;
+    right: 50%;
   }
 }
 
