@@ -1,4 +1,4 @@
-import Circle from "./Circle";
+import Circle from "./Circle/Circle";
 function AnimatedGrid() {
   return (
     <div className="animated-grid">
@@ -6,7 +6,6 @@ function AnimatedGrid() {
       <div className="plate"></div>
       <div className="plate"></div>
       <div className="plate"></div>
-      <Circle />
     </div>
   );
 }

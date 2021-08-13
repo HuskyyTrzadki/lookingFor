@@ -1,4 +1,6 @@
-function Circle() {
+import { useState } from "react";
+
+const Circle = () => {
   return (
     <div className="loginCircle">
       <button id="fb" className="quarter"></button>
@@ -9,5 +11,5 @@ function Circle() {
       </button>
     </div>
   );
-}
+};
 export default Circle;
