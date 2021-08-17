@@ -1,10 +1,13 @@
 import AnimatedGrid from "./AnimatedGrid";
-import Circle from "./Circle/Circle";
+import Circle from "./Circle";
+import Navbar from "./Navbar";
+import React from "react";
 
 const StartingPageInit = () => {
+  const text = "log in please";
   return (
     <div className="startingPage">
-      <nav className="navbar"></nav>
+      <Navbar text={text} />
       <AnimatedGrid />
       <Circle />
     </div>

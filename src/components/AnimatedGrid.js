@@ -1,4 +1,5 @@
-import Circle from "./Circle/Circle";
+import Circle from "./Circle";
+import React from "react";
 function AnimatedGrid() {
   return (
     <div className="animated-grid">
