@@ -17,44 +17,56 @@ const LoginForm = () => {
       setErr("");
       //pomyslnie zalogowano, zamknij okno i przenies na glowna
     } else {
+      console.log("xd");
       setErr("account is not valid");
+      setLoginInfo({ password: "" });
     }
   };
   const submitHandler = (e) => {
     e.preventDefault();
     authorization(loginInfo);
+    console.log("d");
   };
   return (
     <div className="LoginForm">
-      <form onSubmit={submitHandler}>
-        <div className="form-inner">
-          <h2>Login</h2>
-          <div className="form-group">
-            <input
-              className="Input"
-              value={loginInfo.login}
-              name="email"
-              id="email"
-              onChange={(event) =>
-                setLoginInfo({ ...loginInfo, email: event.target.value })
-              }
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="password"
-              className="Input"
-              value={loginInfo.password}
-              name="password"
-              id="password"
-              onChange={(event) =>
-                setLoginInfo({ ...loginInfo, password: event.target.value })
-              }
-            />
-            {err !== "" && <p>zle haslo</p>}
-          </div>
-          <BlueButton submitHandler />
+      <h1>Login</h1>
+      <form>
+        <div className="txt_field">
+          <input
+            type="text"
+            required
+            value={loginInfo.login}
+            name="email"
+            id="email"
+            onChange={(event) =>
+              setLoginInfo({ ...loginInfo, email: event.target.value })
+            }
+          />
+          <span></span>
+          <label>Email</label>
         </div>
+        <div className="txt_field">
+          <input
+            type="password"
+            required
+            type="password"
+            className="Input"
+            value={loginInfo.password}
+            name="password"
+            id="password"
+            onChange={(event) =>
+              setLoginInfo({ ...loginInfo, password: event.target.value })
+            }
+          />
+          <span></span>
+          <label>Password</label>
+        </div>
+        {err !== "" && <p>zle haslo</p>}
+        <div className="pass">Forgot Password?</div>
+        <div className="signup_link">
+          Not a member? <a href="#">Signup</a>
+        </div>
+        <button className="BlueButton" onClick={submitHandler}></button>;
       </form>
     </div>
   );
