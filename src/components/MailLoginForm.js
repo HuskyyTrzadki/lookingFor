@@ -3,7 +3,7 @@ import React from "react";
 import BlueButton from "./BlueButton";
 import { UserContext } from "../context/UserContext";
 
-const LoginForm = () => {
+const MailLoginForm = () => {
   const { user, setUser } = useContext(UserContext);
   const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
   const [err, setErr] = useState("");
@@ -15,9 +15,10 @@ const LoginForm = () => {
     if (JSON.stringify(userinfo) === JSON.stringify(adminUser)) {
       setUser(userinfo.email);
       setErr("");
+
       //pomyslnie zalogowano, zamknij okno i przenies na glowna
+      //dodaj rozroznianie pomiedzy zlym haslem a zlym
     } else {
-      console.log("xd");
       setErr("account is not valid");
       setLoginInfo({ password: "" });
     }
@@ -25,10 +26,9 @@ const LoginForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     authorization(loginInfo);
-    console.log("d");
   };
   return (
-    <div className="LoginForm">
+    <div className="MailLoginForm">
       <h1>Login</h1>
       <form>
         <div className="txt_field">
@@ -66,10 +66,10 @@ const LoginForm = () => {
         <div className="signup_link">
           Not a member? <a href="#">Signup</a>
         </div>
-        <button className="BlueButton" onClick={submitHandler}></button>;
+        <BlueButton event={submitHandler} content="log in" />
       </form>
     </div>
   );
 };
 
-export default LoginForm;
+export default MailLoginForm;

@@ -1,5 +1,9 @@
 import React from "react";
-function BlueButton(onclickEvent) {
-  return;
+function BlueButton(props) {
+  return (
+    <button className="BlueButton" onClick={props.event}>
+      {props.content}
+    </button>
+  );
 }
 export default BlueButton;

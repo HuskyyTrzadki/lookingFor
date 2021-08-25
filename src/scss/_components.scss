@@ -6,6 +6,7 @@
     background: linear-gradient(to right, rgb(0, 102, 255), rgb(153, 204, 255));
     height: 10%;
 }
+
 .loginCircle {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
         rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -128,6 +129,7 @@
     //   background-color: blue;
     //   background-image: none;
     // }
+
     #mail {
         background-image: url(../assets/mail.png);
         background-size: cover;
@@ -194,18 +196,38 @@
         animation-delay: 400ms;
     }
 }
-.LoginForm {
+.BlueButton {
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #2691d9;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    &:hover {
+        border-color: #0f5c8f;
+
+        transition: 0.6s;
+    }
+}
+.MailLoginForm {
     margin: 0;
     padding: 0;
     background: linear-gradient(120deg, #2980b9, #8e44ad);
     overflow: hidden;
     position: absolute;
-    top: 50%;
+    top: 53.4%;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
         rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 40%;
+    @media only screen and (max-width: 600px) {
+        width: 80%;
+    }
     background: white;
     border-radius: 10px;
     h1 {
@@ -216,6 +238,10 @@
     form {
         padding: 0 40px;
         box-sizing: border-box;
+    }
+    .BlueButton {
+        position: relative;
+        bottom: 10px;
     }
     .txt_field {
         position: relative;
@@ -260,22 +286,7 @@
             text-decoration: underline;
         }
     }
-    input[type="submit"] {
-        width: 100%;
-        height: 50px;
-        border: 1px solid;
-        background: #2691d9;
-        border-radius: 25px;
-        font-size: 18px;
-        color: #e9f4fb;
-        font-weight: 700;
-        cursor: pointer;
-        outline: none;
-    }
-    input[type="submit"]:hover {
-        border-color: #2691d9;
-        transition: 0.8s;
-    }
+
     .signup_link {
         margin: 30px;
         text-align: center;
@@ -301,32 +312,6 @@
     }
 }
 
-.BlueButton {
-    position: relative;
-    z-index: 2;
-    width: 200px;
-    appearance: none;
-    background: none;
-    border: none;
-    outline: none;
-    display: inline-block;
-    padding: 10px 15px;
-    border-radius: 8px;
-    display: inline-block;
-    padding: 10px 15px;
-    border-radius: 8px;
-    background-image: linear-gradient(to right, #ffce00 50%, #ffce00 50%, #fe4880);
-    background-size: 200%;
-    background-position: 0%;
-    transition: 0.4s;
-    color: white;
-    z-index: 4;
-    font-weight: 700;
-    cursor: pointer;
-    &:hover {
-        background-position: 100% 0%;
-    }
-}
 @keyframes platesEntrance {
     from {
         opacity: 0;

@@ -179,73 +179,7 @@ body,
   animation-delay: 400ms;
 }
 
-.LoginForm {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(120deg, #2980b9, #8e44ad);
-  overflow: hidden;
-  position: absolute;
-  top: 50%;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  background: white;
-  border-radius: 10px;
-}
-.LoginForm h1 {
-  text-align: center;
-  padding: 0 0 20px 0;
-  border-bottom: 1px solid silver;
-}
-.LoginForm form {
-  padding: 0 40px;
-  box-sizing: border-box;
-}
-.LoginForm .txt_field {
-  position: relative;
-  height: 50%;
-  border-bottom: 2px solid #adadad;
-  margin: 30px 0;
-}
-.LoginForm .txt_field input {
-  width: 100%;
-  padding: 0 5px;
-  height: 40px;
-  font-size: 16px;
-  background: none;
-  outline: none;
-  border: none;
-}
-.LoginForm .txt_field label {
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  color: #adadad;
-  transform: translateY(-50%);
-  font-size: 16px;
-  pointer-events: none;
-}
-.LoginForm .txt_field span::before {
-  content: "";
-  position: absolute;
-  top: 40px;
-  bottom: 0%;
-  left: 0%;
-  width: 0%;
-  height: 2px;
-  background: #2691d9;
-  transition: 0.8s;
-}
-.LoginForm .pass {
-  margin: -5px 0 20px 5px;
-  color: #a6a6a6;
-  cursor: pointer;
-}
-.LoginForm .pass:hover {
-  text-decoration: underline;
-}
-.LoginForm input[type=submit] {
+.BlueButton {
   width: 100%;
   height: 50px;
   border: 1px solid;
@@ -257,58 +191,107 @@ body,
   cursor: pointer;
   outline: none;
 }
-.LoginForm input[type=submit]:hover {
-  border-color: #2691d9;
+.BlueButton:hover {
+  border-color: #0f5c8f;
+  transition: 0.6s;
+}
+
+.MailLoginForm {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg, #2980b9, #8e44ad);
+  overflow: hidden;
+  position: absolute;
+  top: 53.4%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  background: white;
+  border-radius: 10px;
+}
+@media only screen and (max-width: 600px) {
+  .MailLoginForm {
+    width: 80%;
+  }
+}
+.MailLoginForm h1 {
+  text-align: center;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid silver;
+}
+.MailLoginForm form {
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+.MailLoginForm .BlueButton {
+  position: relative;
+  bottom: 10px;
+}
+.MailLoginForm .txt_field {
+  position: relative;
+  height: 50%;
+  border-bottom: 2px solid #adadad;
+  margin: 30px 0;
+}
+.MailLoginForm .txt_field input {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  background: none;
+  outline: none;
+  border: none;
+}
+.MailLoginForm .txt_field label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+}
+.MailLoginForm .txt_field span::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  bottom: 0%;
+  left: 0%;
+  width: 0%;
+  height: 2px;
+  background: #2691d9;
   transition: 0.8s;
 }
-.LoginForm .signup_link {
+.MailLoginForm .pass {
+  margin: -5px 0 20px 5px;
+  color: #a6a6a6;
+  cursor: pointer;
+}
+.MailLoginForm .pass:hover {
+  text-decoration: underline;
+}
+.MailLoginForm .signup_link {
   margin: 30px;
   text-align: center;
   font-size: 16px;
   color: #666666;
 }
-.LoginForm .signup_link a {
+.MailLoginForm .signup_link a {
   color: #2691d9;
   text-decoration: none;
 }
-.LoginForm .signup_link ahover {
+.MailLoginForm .signup_link ahover {
   text-decoration: underline;
 }
-.LoginForm .txt_field input:focus ~ label,
-.LoginForm .txt_field input:valid ~ label {
+.MailLoginForm .txt_field input:focus ~ label,
+.MailLoginForm .txt_field input:valid ~ label {
   top: -5%;
   color: #2691d9;
 }
-.LoginForm .txt_field input:focus ~ span::before,
-.LoginForm .txt_field input:valid ~ span::before {
+.MailLoginForm .txt_field input:focus ~ span::before,
+.MailLoginForm .txt_field input:valid ~ span::before {
   width: 100%;
-}
-
-.BlueButton {
-  position: relative;
-  z-index: 2;
-  width: 200px;
-  appearance: none;
-  background: none;
-  border: none;
-  outline: none;
-  display: inline-block;
-  padding: 10px 15px;
-  border-radius: 8px;
-  display: inline-block;
-  padding: 10px 15px;
-  border-radius: 8px;
-  background-image: linear-gradient(to right, #ffce00 50%, #ffce00 50%, #fe4880);
-  background-size: 200%;
-  background-position: 0%;
-  transition: 0.4s;
-  color: white;
-  z-index: 4;
-  font-weight: 700;
-  cursor: pointer;
-}
-.BlueButton:hover {
-  background-position: 100% 0%;
 }
 
 @keyframes platesEntrance {
