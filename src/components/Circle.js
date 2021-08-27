@@ -1,20 +1,21 @@
 import { useState } from "react";
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import styles from "./Circle.module.scss";
 
 const Circle = ({ setShowFbLogin, setShowMailLogin }) => {
   return (
-    <div className="loginCircle">
+    <div className={styles.loginCircle}>
       <Router>
         <Link to="/logInWithFb">
-          <button id="fb" className="quarter"></button>
+          <button id="fb" className={styles.quarter}></button>
         </Link>
         <button
           id="mail"
-          className="quarter"
+          className={styles.quarter}
           onClick={() => setShowMailLogin(true)}
         ></button>
-        <button id="decline" className="half">
+        <button id="decline" className={styles.decline}>
           {" "}
           <p>no, maybe later</p>
         </button>

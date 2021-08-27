@@ -1,7 +1,9 @@
 import React from "react";
+import styles from "./BlueButton.module.scss";
+
 function BlueButton(props) {
   return (
-    <button className="BlueButton" onClick={props.event}>
+    <button className={styles.BlueButton} onClick={props.event}>
       {props.content}
     </button>
   );

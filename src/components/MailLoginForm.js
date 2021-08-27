@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import React from "react";
 import BlueButton from "./BlueButton";
 import { UserContext } from "../context/UserContext";
+import styles from "./MailLoginForm.module.scss";
 
 const MailLoginForm = () => {
   const { user, setUser } = useContext(UserContext);
@@ -28,10 +29,10 @@ const MailLoginForm = () => {
     authorization(loginInfo);
   };
   return (
-    <div className="MailLoginForm">
+    <div className={styles.MailLoginForm}>
       <h1>Login</h1>
       <form>
-        <div className="txt_field">
+        <div className={styles.txt_field}>
           <input
             type="text"
             required
@@ -45,7 +46,7 @@ const MailLoginForm = () => {
           <span></span>
           <label>Email</label>
         </div>
-        <div className="txt_field">
+        <div className={styles.txt_field}>
           <input
             type="password"
             required
@@ -62,8 +63,8 @@ const MailLoginForm = () => {
           <label>Password</label>
         </div>
         {err !== "" && <p>zle haslo</p>}
-        <div className="pass">Forgot Password?</div>
-        <div className="signup_link">
+        <div className={styles.pass}>Forgot Password?</div>
+        <div className={styles.signup_link}>
           Not a member? <a href="#">Signup</a>
         </div>
         <BlueButton event={submitHandler} content="log in" />

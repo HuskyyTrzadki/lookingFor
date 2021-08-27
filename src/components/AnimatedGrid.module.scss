@@ -1,0 +1,46 @@
+.animatedGrid {
+    display: grid;
+    position: relative;
+
+    height: 93%;
+    width: 98%;
+    margin: auto;
+    row-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(45vw, 1fr));
+
+    z-index: 0;
+}
+
+.plate {
+    filter: grayscale(0.9);
+
+    animation: platesEntrance 500ms ease-out;
+    animation-fill-mode: backwards;
+
+    &:nth-child(1) {
+        background-image: url(../assets/adventure.jpg);
+        background-position: center;
+        object-fit: cover;
+        background-size: cover;
+        animation-delay: 100ms;
+    }
+    &:nth-child(2) {
+        background-image: url(../assets/partying.jpg);
+        background-size: cover;
+        background-position: top;
+        animation-delay: 200ms;
+    }
+    &:nth-child(3) {
+        background-image: url(../assets/sport.jpg);
+        background-size: cover;
+        background-position: top;
+        animation-delay: 300ms;
+        //przerzuc pliki do jednego index.css
+    }
+    &:nth-child(4) {
+        background-image: url(../assets/studying.jpg);
+        background-size: cover;
+        background-position: top;
+        animation-delay: 400ms;
+    }
+}

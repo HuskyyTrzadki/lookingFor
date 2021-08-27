@@ -7,6 +7,8 @@ import { UserContext } from "../context/UserContext";
 import LoginForm from "./MailLoginForm";
 import MailLoginForm from "./MailLoginForm";
 
+import styles from "./StartingPage.modules.scss";
+
 const StartingPage = () => {
   let text = "log in please";
   const { user, setUser } = useContext(UserContext);
@@ -16,7 +18,7 @@ const StartingPage = () => {
     user == "" ? (text = "Please Log in") : (text = `logged in with ${user}`);
   }
   return (
-    <div className="startingPage">
+    <div className={styles.StartingPage}>
       <Navbar text={text} />
       <AnimatedGrid />
       {user == "" && !showFbLogin && !showMailLogin && (
