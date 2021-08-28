@@ -7,7 +7,7 @@ import { UserContext } from "../context/UserContext";
 import LoginForm from "./MailLoginForm";
 import MailLoginForm from "./MailLoginForm";
 
-import styles from "./StartingPage.modules.scss";
+import styles from "./StartingPage.module.scss";
 
 const StartingPage = () => {
   let text = "log in please";
