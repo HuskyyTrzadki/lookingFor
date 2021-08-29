@@ -1,0 +1,59 @@
+@mixin plate($scaleOfGrey) {
+    @if $scaleOfGrey>0 {
+        animation: lightenUp 1000ms backwards;
+    } @else {
+        animation: platesEntrance 500ms ease-out backwards, darkenUp 2000ms ease-out forwards;
+    }
+    &:nth-child(1) {
+        background-image: url(../assets/adventure.jpg);
+        background-position: center;
+        object-fit: cover;
+        background-size: cover;
+        animation-delay: 100ms;
+    }
+    &:nth-child(2) {
+        background-image: url(../assets/partying.jpg);
+        background-size: cover;
+        background-position: top;
+        animation-delay: 200ms;
+    }
+    &:nth-child(3) {
+        background-image: url(../assets/sport.jpg);
+        background-size: cover;
+        background-position: top;
+        animation-delay: 300ms;
+        //przerzuc pliki do jednego index.css
+    }
+    &:nth-child(4) {
+        background-image: url(../assets/studying.jpg);
+        background-size: cover;
+        background-position: top;
+        animation-delay: 400ms;
+    }
+    @keyframes lightenUp {
+        from {
+            filter: grayscale($scaleOfGrey);
+        }
+        to {
+            filter: grayscale(0);
+        }
+    }
+    @keyframes darkenUp {
+        from {
+            filter: grayscale(0);
+        }
+        to {
+            filter: grayscale($scaleOfGrey);
+        }
+    }
+    @keyframes platesEntrance {
+        from {
+            opacity: 0;
+            transform: scale(0.3);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}

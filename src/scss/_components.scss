@@ -1,0 +1,49 @@
+#fb {
+    &:hover {
+        filter: brightness(1.4);
+    }
+    background-image: url(../assets/fb.png);
+    background-size: cover;
+    background-position: top;
+}
+
+// #mailHoveredLogin {
+//   &:hover{
+//     filter:brightness(1.4);
+//   }
+//   background-color: red;
+//   background-image: none;
+// }
+// #mailHoveredRegister {
+//   &:hover{
+//     filter:brightness(1.4);
+//   }
+//   background-color: blue;
+//   background-image: none;
+// }
+
+#mail {
+    background-image: url(../assets/mail.png);
+    background-size: cover;
+    background-position: 0 0;
+    &:hover {
+        filter: brightness(1.4);
+    }
+}
+
+.plate {
+    &:nth-child(1) {
+        background-image: url(../assets/adventure.jpg);
+    }
+    &:nth-child(2) {
+        background-image: url(../assets/partying.jpg);
+    }
+    &:nth-child(3) {
+        background-image: url(../assets/sport.jpg);
+
+        //przerzuc pliki do jednego index.css
+    }
+    &:nth-child(4) {
+        background-image: url(../assets/studying.jpg);
+    }
+}

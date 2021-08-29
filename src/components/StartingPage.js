@@ -14,9 +14,7 @@ const StartingPage = () => {
   const { user, setUser } = useContext(UserContext);
   const [showFbLogin, setShowFbLogin] = useState(false);
   const [showMailLogin, setShowMailLogin] = useState(false);
-  {
-    user == "" ? (text = "Please Log in") : (text = `logged in with ${user}`);
-  }
+  user == "" ? (text = "Please Log in") : (text = `logged in with ${user}`);
   return (
     <div className={styles.StartingPage}>
       <Navbar text={text} />

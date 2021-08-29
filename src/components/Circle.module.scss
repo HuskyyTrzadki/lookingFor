@@ -141,4 +141,23 @@
         align-items: top;
         justify-content: center;
     }
+
+    @keyframes circleEntrance {
+        0% {
+            opacity: 0;
+            top: 55%;
+            left: 0%;
+        }
+        80% {
+            opacity: 1;
+            top: 55%;
+            left: 53%;
+        }
+
+        100% {
+            opacity: 1;
+            top: 55%;
+            right: 50%;
+        }
+    }
 }

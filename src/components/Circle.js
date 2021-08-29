@@ -8,14 +8,14 @@ const Circle = ({ setShowFbLogin, setShowMailLogin }) => {
     <div className={styles.loginCircle}>
       <Router>
         <Link to="/logInWithFb">
-          <button id="fb" className={styles.quarter}></button>
+          <button id={styles.fb} className={styles.quarter}></button>
         </Link>
         <button
-          id="mail"
           className={styles.quarter}
+          id={styles.mail}
           onClick={() => setShowMailLogin(true)}
         ></button>
-        <button id="decline" className={styles.decline}>
+        <button id={styles.decline} className={styles.half}>
           {" "}
           <p>no, maybe later</p>
         </button>
