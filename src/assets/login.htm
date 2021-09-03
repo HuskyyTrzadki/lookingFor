@@ -1,0 +1,338 @@
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl"><!-- InstanceBegin template="/Templates/sso-szablon2.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<title>Punkt Logowania - Uniwersytet Jagielloński</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<style type="text/css" media="screen">@import 'css/style.css?v=9';@import 'css/nav.css?v=2';@import 'css/rwd.css?v=4';
+</style>
+    <!--[if lt IE 7 ]> <html class="ie"> <![endif]-->
+    <!--[if IE 7 ]>    <html class="ie"> <![endif]-->
+    <!--[if IE 8 ]>    <html class="ie"> <![endif]-->
+    <!--[if IE 9 ]>    <html class="ie"> <![endif]-->
+<script type="text/javascript" src="js/bundle.min.js"></script>
+<script type="text/javascript" src="js/detectMsie.js?v=1"></script>
+<script type="text/javascript" src='js/jquery-3.2.1.min.js'></script>
+<script type="text/javascript" src="js/eager-image-loader.min.js"></script>
+<script type="text/javascript" async src="https://www.googletagmanager.com/gtag/js?id=UA-126536536-1"></script>
+<script type="text/javascript">
+    Sentry.init({
+        dsn: 'https://89dd4bbf37864df3b9ad943f2d765b01@sentry.usos.uj.edu.pl/26',
+        maxBreadcrumbs: 50,
+        debug: false,
+    });
+
+    new classDetectMsie();
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+            dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-126536536-1');
+</script>
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+<link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192" />
+<link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160" />
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+<link href="/favicon.ico" rel="Shortcut Icon">
+</head>
+
+	<body id="cas">
+		
+			<div id='background-image' data-background='img/backgrounds/bg_uj.jpg?v14'>
+			</div>
+				<div id="ie-update-message" class="ie-update-message">
+					<div class="ie-update-message-content">
+						<div class="ie-update-message-header">
+							<div class="ie-update-message-close" id="ie-message-close">&times;</div>
+							<div>Informacja o aktualizacji przeglądarki</div>
+						</div>
+						<div class="ie-update-message-body">
+							<p>Szanowni Państwo!</p>
+							<p>Ze względów bezpieczeństwa prosimy o korzystanie z aktualnej wersji przeglądarki Internet Explorer, obecnie jest to Microsoft Edge. Aktualizację mogą Państwo pobrać pod tym linkiem: <a href="https://www.microsoft.com/pl-pl/windows/microsoft-edge"> Microsoft Edge</a>.</p>
+							<p>Polecamy również korzystanie z innych przeglądarek internetowych takich jak na przykład Firefox, Chrome czy Opera.</p>
+							<p>W razie problemów prosimy o kontakt z pracownikami <a href="http://www.pomocit.uj.edu.pl/">Pomocy IT</a> UJ.</p>
+						</div>
+						<div class="ie-update-message-footer">
+							<button id="ie-message-close">zamknij</button>
+						</div>
+					</div>
+				</div>
+			<div id="wrapper">
+				<div id="main-container">
+					<div id="content">
+						<div id="form-content">
+							<div class="arrow-down"></div>
+							<form id="fm1" class="navbar fm-v clearfix" action="/login?service=https%3A%2F%2Fpegaz.uj.edu.pl%2Flogin%2Findex.php" method="post">
+								<div class='nav-main-bar'>
+									<div class=" header-main-bar__rp-eagle" title="Rzeczpospolita Polska (godło)">
+									</div>
+									<div class="header-main-bar__godlo-uj">
+										<a class="header-main-bar__logo" href="http://www.uj.edu.pl" title="Uniwersytet Jagielloński " data-tooltip="Strona główna UJ"
+										    data-tooltip-align="right">
+										</a>
+									</div>
+								</div>
+								<div class="box" id="login">
+									<div class='top'>
+										<div id='logo' class=''></div>
+										<h1 id="name">
+											uniwersytet jagielloński
+											<br>
+											w krakowie
+										</h1>
+									</div>
+									<div id="alert-error">
+										<div class="error-icon" id="error-icon"></div>
+										
+									</div>
+									<div class='input-row'>
+										<div class="row username clearfix">
+											<div id="alert-login"></div>
+											<label for="username"></label>
+											<input id="username" name="username" cssClass="required" tabindex="1" accesskey=""
+											    path="username" type="text" htmlEscape="true" placeholder='email / identyfikator'
+											    value="" size="45" autocomplete="false">
+										</div>
+										<div class="row password clearfix">
+											<div id="alert-password"></div>
+											<label for="password"></label>
+											<input id="password" name="password" cssClass="required" tabindex="2" path="password" accesskey="" htmlEscape="true"
+											    type="password" placeholder='hasło'
+											    value="" size="47" autocomplete="off">
+										</div>
+									</div>
+									<div class="row btn-row btn-login">
+										<input type="hidden" name="lt" value="_c486570DB-5DC3-DE00-A130-1D67E41E6064_k10951AA0-4C25-055F-8A80-AFCDD12D1B86" />
+										<input type="hidden" name="_eventId" value="submit" />
+										<input class="btn-submit" name="submit" accesskey="l" value='zaloguj' tabindex="4" type="submit">
+									</div>
+									<div class='row help-row'>
+										<div class='change-language'>
+											<div class='change-button'>
+												<a>
+													change language &#x25BE;</a>
+											</div>
+											<div class='flags'>
+												
+
+
+
+
+    
+        
+            <a href="login?service=https%3A%2F%2Fpegaz.uj.edu.pl%2Flogin%2Findex.php&locale=en" class='flag en'>
+                english
+            </a>
+        
+
+											</div>
+										</div>
+										
+    <div class='tooltip'>
+        <a href="#pomoc-it" class='right'>
+            pomoc
+            <span class='tooltiptext'>
+                Aby zalogować się należy podać adres email oraz hasło. Adres email powinien należeć do jednej z domen pocztowych: <b>@uj.edu.pl, @student.uj.edu.pl, @doctoral.uj.edu.pl, @usosweb.uj.edu.pl, @alumni.uj.edu.pl</b>.
+            </span>
+        </a>
+    </div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					
+	<div id='text-content'>
+		<div class='content'>
+		<div class="arrow-up"></div>
+			<section id="pomoc-it" class='white'>
+				<div class='section-content'>
+					<div class='icon'>
+						<img src='img/sections/icons/pomoc-it.png?v=1' alt="Pomoc IT">
+					</div>
+					<div class='text'>
+						<h3>
+							Pomoc IT
+						</h3>
+						<span>&nbsp;
+							- serwis poświęcony jest pomocy informatycznej związanej z uniwersyteckimi systemami IT, oprogramowaniem oraz usługami sieciowo-serwerowymi. Jeżeli mają Państwo problem m.in. z logowaniem, pocztą uniwersytecką lub dostępem do wi-fi - polecamy kontakt z pracownikami Pomocy IT.
+						</span>
+					</div>
+					<div class='button'>
+						<div class="button-link">
+							<a href='http://www.pomocit.uj.edu.pl/'>
+								Pomoc IT
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<h2>
+				Serwisy dostępne po zalogowaniu
+			</h2>
+			<section id="usosweb">
+				<div class='section-content'>
+					<div class='icon'>
+						<img src='img/sections/icons/usos.png?v=1' alt='USOSWeb logo'>
+					</div>
+					<div class='text'>
+						<h3>
+							USOSweb
+						</h3>
+						<span>&nbsp;
+							- serwis internetowy Uniwersyteckiego Systemu Obsługi Studiów. USOSweb jest platformą przeznaczoną dla studentów i pracowników naukowych. System między innymi umożliwia studentom rejestrację na przedmioty, a pracownikom pozwala wprowadzić oceny. Można również składać wnioski o stypendium lub akademik oraz wypełniać ankiety dotyczące pracy pracowników.
+						</span>
+					</div>
+					<div class='button'>
+						<div class="button-link">
+							<a href='https://www.usosweb.uj.edu.pl' >
+								USOSweb
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class='white'>
+				<div class='section-content'>
+					<div class='icon'>
+						<img src='img/sections/icons/portal-uj.png?v=1' alt="Portal UJ">
+					</div>
+					<div class='text'>
+						<h3>
+							Portal Uniwersytecki
+						</h3>
+						<span>&nbsp;
+							- centralny system umożliwiający tworzenie stron internetowych. Obecne w Portalu UJ działa ponad 540 witryn, w tym m.in. witryna główna UJ - <a href="https://www.uj.edu.pl">www.uj.edu.pl</a>, strona Biblioteki Jagiellońskiej - <a href="http://www.bj.uj.edu.pl">www.bj.uj.edu.pl</a>, witryny wydziałowe, instytutowe, serwisy uczelnianych projektów oraz konferencji.
+						</span>
+					</div>
+					<div class='button'>
+						<div class="button-link">
+							<a href='http://www.portal.uj.edu.pl/' >
+								Portal Uniwersytecki
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id='pegaz'>
+				<div class='section-content'>
+					<div class='icon'>
+						<img src='img/sections/icons/pegaz.png?v=2' alt="Pegaz logo">
+					</div>
+					<div class='text'>
+						<h3>
+							Pegaz
+						</h3>
+						<span>&nbsp;
+							- platforma zdalnego nauczania zawierająca wszystkie kursy objęte programami studiów. Pegaz służy do  prezentacji zasobów dydaktycznych, aktywności i interakcji w ramach zajęć; jest też zintegrowany z USOS.
+						</span>
+					</div>
+					<div class='button'>
+						<div class="button-link">
+							<a href='https://pegaz.uj.edu.pl/index.html'>
+								Pegaz
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class='white'>
+				<div class='section-content'>
+					<div class='icon'>
+						<img src='img/sections/icons/lex.png?v=1' alt="LEX">
+					</div>
+					<div class='text'>
+						<h3>
+							LEX
+						</h3>
+						<span>&nbsp;
+							- polski Systemem Informacji Prawnej, dzięki któremu użytkownicy mogą dowiedzieć się o pracach nad projektami nowych aktów prawnych. LEX zapewnia codzienny dostęp do kompletnych i aktualnych informacji ze wszystkich dziedzin prawa.
+						</span>
+					</div>
+					<div class='button'>
+						<div class="button-link">
+							<a href='https://borg.wolterskluwer.pl/Auth/AuthPage.ashx?applicationId=AndromedaProduction&referer=https%3A%2F%2Fsip.lex.pl%2F' >
+								LEX
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="archiwum-prac">
+				<div class='section-content'>
+					<div class='icon'>
+						<img src='img/sections/icons/archiwum.png?v=1' alt="Archiwum Prac Dyplomowych logo">
+					</div>
+					<div class='text'>
+						<h3>
+							Archiwum Prac Dyplomowych
+						</h3>
+						<span>&nbsp;
+							- serwis związanym z systemem USOS. Umożliwia elektroniczną archiwizację prac dyplomowych studentów. Odpowiada za administrację złożonych prac licencjackich oraz magisterskich z zapewnieniem ochrony praw autorskich.
+						</span>
+					</div>
+					<div class='button'>
+						<div class="button-link">
+							<a href='https://www.apd.uj.edu.pl/?_s=1'>
+								Archiwum Prac Dyplomowych
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class='white'>
+				<div class='section-content'>
+					<div class='icon'>
+						<img src='img/sections/icons/ms.png?v=1' alt="Chmura Office365">
+					</div>
+					<div class='text'>
+						<h3>
+							Chmura Office365
+						</h3>
+						<span>&nbsp;
+							- zestaw narzędzi i aplikacji do zdalnej pracy grupowej. Zawiera narzędzia takie jak Word, Excel, PowerPoint w wersjach online oraz aplikacje, za pomocą których można tworzyć raporty, formularze, multimedialne prezentacje webowe oraz realizować pracę zespołową.
+						</span>
+					</div>
+					<div class='button'>
+						<div class="button-link">
+							<a href='https://portal.office.com' >
+								Chmura Office365
+							</a>
+						</div>
+					</div>
+				</div>
+				<div id="sections-end"></div>
+			</section>
+		</div>
+	</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				var ALERT_WPROWADZ_EMAIL = "podaj adres email";
+				var ALERT_NIEPOPRAWNY_EMAIL = "nieprawidłowy adres email";
+				var ALERT_SUGEROWANY_EMAIL = "sugerowany identyfikator: [pesel]@usosweb.uj.edu.pl";
+				var ALERT_WPROWADZ_HASLO = "podaj hasło";
+			</script>
+			<script type="text/javascript" src="js/basicSet.js?v=10"></script>
+			<script type="text/javascript" src="js/loginViewSet.js?v=3"></script>
+			<script type="text/javascript" src="js/loginViewClassInit.js?v=3"></script>
+			<script type="text/javascript">
+				(function() {
+					cookieFunction('jakub.jochymek@student.uj.edu.pl');
+				})();
+			</script>
+	</body>
+	</html>

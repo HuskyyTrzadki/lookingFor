@@ -1,0 +1,194 @@
+@mixin plate($scaleOfGrey) {
+    @if $scaleOfGrey>0 {
+        animation: lightenUp 1000ms backwards;
+    } @else {
+        animation: platesEntrance 500ms ease-out backwards, darkenUp 2000ms ease-out forwards;
+    }
+    &:nth-child(1) {
+        background-image: url(../assets/adventure.jpg);
+        background-position: center;
+        object-fit: cover;
+        background-size: cover;
+        animation-delay: 100ms;
+    }
+    &:nth-child(2) {
+        background-image: url(../assets/partying.jpg);
+        background-size: cover;
+        background-position: top;
+        animation-delay: 200ms;
+    }
+    &:nth-child(3) {
+        background-image: url(../assets/sport.jpg);
+        background-size: cover;
+        background-position: top;
+        animation-delay: 300ms;
+        //przerzuc pliki do jednego index.css
+    }
+    &:nth-child(4) {
+        background-image: url(../assets/studying.jpg);
+        background-size: cover;
+        background-position: top;
+        animation-delay: 400ms;
+    }
+    @keyframes lightenUp {
+        from {
+            filter: grayscale($scaleOfGrey);
+        }
+        to {
+            filter: grayscale(0);
+        }
+    }
+    @keyframes darkenUp {
+        from {
+            filter: grayscale(0);
+        }
+        to {
+            filter: grayscale($scaleOfGrey);
+        }
+    }
+    @keyframes platesEntrance {
+        from {
+            opacity: 0;
+            transform: scale(0.3);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+// ------------------------------------
+@mixin loginForm($color) {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #2980b9, #8e44ad);
+    overflow: hidden;
+    position: absolute;
+    top: 53%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    @media only screen and (max-width: 600px) {
+        width: 80%;
+    }
+    background: white;
+    border-radius: 10px;
+    h1 {
+        text-align: center;
+        padding: 0 0 20px 0;
+        border-bottom: 1px solid silver;
+    }
+    h6 {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .close {
+        position: relative;
+        top: 20%;
+        width: 32px;
+        height: 32px;
+        opacity: 0.3;
+        &:hover {
+            opacity: 1;
+        }
+        &:before,
+        &:after {
+            position: absolute;
+            content: " ";
+            height: 22px;
+            width: 2px;
+            background-color: #333;
+        }
+        &:before {
+            transform: rotate(45deg);
+        }
+        &:after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    .loginNavbar {
+        display: grid;
+        grid-template-columns: 8fr 1fr;
+    }
+    form {
+        padding: 0 40px;
+        box-sizing: border-box;
+    }
+
+    .BlueButton {
+        position: relative;
+        bottom: 10px;
+    }
+    .txt_field {
+        position: relative;
+        height: 50%;
+        border-bottom: 2px solid #adadad;
+        margin: 30px 0;
+        input {
+            width: 100%;
+            padding: 0 5px;
+            height: 40px;
+            font-size: 16px;
+            background: none;
+            outline: none;
+            border: none;
+        }
+        label {
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            color: #adadad;
+            transform: translateY(-50%);
+            font-size: 16px;
+            pointer-events: none;
+        }
+        span::before {
+            content: "";
+            position: absolute;
+            top: 40px;
+            bottom: 0%;
+            left: 0%;
+            width: 0%;
+            height: 2px;
+            transition: 0.5s;
+            background-color: $color;
+        }
+    }
+    .pass {
+        margin: -5px 0 20px 5px;
+        color: #a6a6a6;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .signup_link {
+        margin: 30px;
+        text-align: center;
+        font-size: 16px;
+        color: #666666;
+        a {
+            color: #2691d9;
+            text-decoration: none;
+            &hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .txt_field input:focus ~ label,
+    .txt_field input:valid ~ label {
+        top: -5%;
+        color: #2691d9;
+    }
+
+    .txt_field input:focus ~ span::before,
+    .txt_field input:valid ~ span::before {
+        width: 100%;
+    }
+}

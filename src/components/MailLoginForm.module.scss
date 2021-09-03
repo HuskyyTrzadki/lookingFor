@@ -1,0 +1,9 @@
+@use '../scss/mixins' as mixin;
+
+.MailLoginFormINVALID {
+    @include mixin.loginForm(red);
+}
+
+.MailLoginFormVALID {
+    @include mixin.loginForm(#2691d9);
+}
