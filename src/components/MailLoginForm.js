@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import React from "react";
 import BlueButton from "./BlueButton";
-import { UserContext } from "../context/UserContext";
+import { useAuth } from "../context/AuthContext";
 import styles from "./MailLoginForm.module.scss";
 import { Link } from "react-router-dom";
 const MailLoginForm = ({ setShowMailLogin }) => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(useAuth);
   const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
   const [err, setErr] = useState("");
   ///

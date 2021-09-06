@@ -3,32 +3,31 @@ import Circle from "./Circle";
 import Navbar from "./Navbar";
 import React, { useState } from "react";
 import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
-import LoginForm from "./MailLoginForm";
-import MailLoginForm from "./MailLoginForm";
 import MailRegisterForm from "./MailRegisterForm";
+import { useAuth } from "../context/AuthContext";
 
 import styles from "./StartingPage.module.scss";
+import MailLoginForm from "./MailLoginForm";
 
 const StartingPage = () => {
-  let text = "log in please";
-  const { user, setUser } = useContext(UserContext);
+  let text = "";
+  const { currentUser, signUp } = useAuth();
   const [showFbLogin, setShowFbLogin] = useState(false);
-  const [showMailLogin, setShowMailLogin] = useState(false);
-  user == "" ? (text = "Please Log in") : (text = `logged in with ${user}`);
+  const [showMailRegister, setShowMailRegister] = useState(false);
+  currentUser
+    ? (text = "Please Log in")
+    : (text = `logged in with ${currentUser}`);
   return (
     <div className={styles.StartingPage}>
       <Navbar text={text} />
       <AnimatedGrid />
-      {user == "" && !showFbLogin && !showMailLogin && (
+      {!currentUser && !showFbLogin && !showMailRegister && (
         <Circle
           setShowFbLogin={setShowFbLogin}
-          setShowMailLogin={setShowMailLogin}
+          setShowMailRegister={setShowMailRegister}
         />
       )}
-      {showMailLogin && user == "" && (
-        <MailRegisterForm setShowMailLogin={setShowMailLogin} />
-      )}
+      <MailLoginForm setShowMailLogin={setShowMailRegister} />)
     </div>
   );
 };

@@ -1,19 +1,19 @@
 import StartingPage from "./components/StartingPage";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { useState } from "react";
-import React from "react";
-import { UserContext } from "./context/UserContext";
+
+import { AuthProvider } from "./context/AuthContext";
 const App = () => {
   const [user, setUser] = useState("");
 
   return (
-    <Router>
-      <UserContext.Provider value={{ user, setUser }}>
+    <AuthProvider>
+      <Router>
         <Switch>
           <Route exact path="/" component={StartingPage} />
         </Switch>
-      </UserContext.Provider>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 };
 

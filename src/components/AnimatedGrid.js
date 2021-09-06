@@ -1,11 +1,11 @@
 import React from "react";
-import { UserContext } from "../context/UserContext";
 import { useContext } from "react";
+import { useAuth } from "../context/AuthContext";
 import styles from "./AnimatedGrid.module.scss";
 function AnimatedGrid() {
-  const { user, setUser } = useContext(UserContext);
+  const { currentUser, signUp } = useAuth;
   const plateStyling = {
-    key: `${user == "" ? styles.lightPlate : styles.greyPlate}`,
+    key: `${currentUser == "" ? styles.lightPlate : styles.greyPlate}`,
   };
   console.log(plateStyling);
   return (
