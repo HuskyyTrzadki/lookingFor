@@ -11,9 +11,8 @@
     outline: none;
     position: relative;
     bottom: 20px;
-    p &:hover {
+    &:hover {
         border-color: #0f5c8f;
-
         transition: 0.6s;
     }
 }

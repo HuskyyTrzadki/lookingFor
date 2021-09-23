@@ -1,9 +1,10 @@
-//kolory czcionka,ewentualnie body
 @import "./components";
 html,
 body,
 #root {
     margin: 0;
-    height: 98.5%;
+    height: 99%;
     background-size: cover;
+    padding: 0;
+    overflow: hidden;
 }

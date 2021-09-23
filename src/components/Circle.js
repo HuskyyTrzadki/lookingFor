@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useContext } from "react";
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styles from "./Circle.module.scss";
+import { AuthProvider, UserContext } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
-const Circle = ({ setShowFbLogin, setShowMailLogin }) => {
+const Circle = ({ setShowFbLogin, setShowMailRegister }) => {
+  const { signInAnonymously, currentUser } = useAuth();
+  const handleAnonymousSignIn = async () => {
+    await signInAnonymously();
+
+    // expected output: "resolved"
+  };
+
   return (
     <div className={styles.loginCircle}>
       <Router>
@@ -13,11 +22,17 @@ const Circle = ({ setShowFbLogin, setShowMailLogin }) => {
         <button
           className={styles.quarter}
           id={styles.mail}
-          onClick={() => setShowMailLogin(true)}
+          onClick={() => setShowMailRegister(true)}
         ></button>
-        <button id={styles.decline} className={styles.half}>
+        <button
+          id={styles.decline}
+          className={styles.half}
+          onClick={() => {
+            handleAnonymousSignIn();
+          }}
+        >
           {" "}
-          <p>no, maybe later</p>
+          no, maybe later
         </button>
       </Router>
     </div>

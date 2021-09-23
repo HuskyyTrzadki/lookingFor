@@ -1,6 +1,8 @@
 .loginCircle {
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 0px 3px, rgba(0, 0, 0, 0.4) 0px 0px 0px 6px,
+        rgba(0, 0, 0, 0.3) 0px 0px 0px 9px, rgba(0, 0, 0, 0.2) 0px 0px 0px 12px, rgba(0, 0, 0, 0.1) 0px 0px 0px 15px;
+
+    border-radius: 100px;
     filter: grayscale(0);
     animation: circleEntrance 1000ms ease-out;
     animation-fill-mode: backwards;
@@ -12,8 +14,8 @@
     transform-origin: center;
     transform: translate(-50%, -50%);
     position: absolute;
-    font-size: 15px;
     border-radius: 50%;
+
     overflow: hidden;
     z-index: 2;
 
@@ -38,18 +40,7 @@
         }
         width: 66vw;
         height: 66vw;
-        // .halfOfQuarter{
-        //   content: '';
-        //   width: 200px;
-        //   height: 200px;
-        //   border-radius: 50%;
-        //   position: absolute;
-        //   top: -15px;
-        //   left: -15px;
-        //   border: 15px dashed red;
-        //   -webkit-transform: rotate(30deg);
-        //   transform: rotate(30deg);
-        // }
+
         .quarter {
             width: 33vw;
             height: 33vw;
@@ -106,21 +97,6 @@
         background-position: top;
     }
 
-    // #mailHoveredLogin {
-    //   &:hover{
-    //     filter:brightness(1.4);
-    //   }
-    //   background-color: red;
-    //   background-image: none;
-    // }
-    // #mailHoveredRegister {
-    //   &:hover{
-    //     filter:brightness(1.4);
-    //   }
-    //   background-color: blue;
-    //   background-image: none;
-    // }
-
     #mail {
         background-image: url(../assets/mail.png);
         background-size: cover;
@@ -134,12 +110,15 @@
         &:hover {
             filter: brightness(0.8);
         }
-        background: linear-gradient(to right, rgb(0, 102, 255), rgb(153, 204, 255));
-        font-size: 30px; //popraw bo sie nie zmienia jak zmniejsasz okno
+        background: linear-gradient(to right, #0440e6, #79b4e0);
+        font-size: 10vw; //popraw bo sie nie zmienia jak zmniejsasz okno
         color: white;
         display: flex;
         align-items: top;
         justify-content: center;
+        @media only screen and (min-width: 550px) {
+            font-size: 5vw;
+        }
     }
 
     @keyframes circleEntrance {

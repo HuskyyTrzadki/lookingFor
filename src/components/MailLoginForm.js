@@ -1,17 +1,19 @@
 import { useContext, useState } from "react";
 import React from "react";
 import BlueButton from "./BlueButton";
-import { UserContext } from "../context/UserContext";
+import { useAuth } from "../context/AuthContext";
 import styles from "./MailLoginForm.module.scss";
-
-const MailLoginForm = () => {
-  const { user, setUser } = useContext(UserContext);
+import { Link } from "react-router-dom";
+const MailLoginForm = ({ setShowMailLogin }) => {
+  const { user, setUser } = useAuth();
   const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
   const [err, setErr] = useState("");
+  ///
   const adminUser = {
     email: "admin@admin.com",
     password: "admin123",
   };
+  //jak zalogowano to zaktualizuj userContext o cale info o uzytkowniku na podstawie maila
   const authorization = (userinfo) => {
     if (JSON.stringify(userinfo) === JSON.stringify(adminUser)) {
       setUser(userinfo.email);
@@ -29,8 +31,16 @@ const MailLoginForm = () => {
     authorization(loginInfo);
   };
   return (
-    <div className={styles.MailLoginForm}>
-      <h1>Login</h1>
+    <div
+      className={err ? styles.MailLoginFormINVALID : styles.MailLoginFormVALID}
+    >
+      <nav className={styles.loginNavbar}>
+        <h1>LoginForm</h1>
+        <div
+          className={styles.close}
+          onClick={() => setShowMailLogin(false)}
+        ></div>
+      </nav>
       <form>
         <div className={styles.txt_field}>
           <input
@@ -39,9 +49,10 @@ const MailLoginForm = () => {
             value={loginInfo.login}
             name="email"
             id="email"
-            onChange={(event) =>
-              setLoginInfo({ ...loginInfo, email: event.target.value })
-            }
+            onChange={(event) => {
+              setLoginInfo({ ...loginInfo, email: event.target.value });
+              setErr("");
+            }}
           />
           <span></span>
           <label>Email</label>
@@ -51,21 +62,26 @@ const MailLoginForm = () => {
             type="password"
             required
             type="password"
-            className="Input"
+            className={styles.Input}
             value={loginInfo.password}
             name="password"
             id="password"
-            onChange={(event) =>
-              setLoginInfo({ ...loginInfo, password: event.target.value })
-            }
+            onChange={(event) => {
+              setLoginInfo({ ...loginInfo, password: event.target.value });
+              setErr("");
+            }}
           />
           <span></span>
           <label>Password</label>
         </div>
-        {err !== "" && <p>zle haslo</p>}
-        <div className={styles.pass}>Forgot Password?</div>
+        {err !== "" && <p>account not valid</p>}
+        <div className={styles.pass}>
+          <h2>Forgot Password?</h2>
+        </div>
         <div className={styles.signup_link}>
-          Not a member? <a href="#">Signup</a>
+          <Link to="/register">
+            <h6>don't have account yet? register here!</h6>
+          </Link>
         </div>
         <BlueButton event={submitHandler} content="log in" />
       </form>

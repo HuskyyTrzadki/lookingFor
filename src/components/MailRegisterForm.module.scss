@@ -1,4 +1,4 @@
-@use '../scss/mixins' as mixin;
+@use "../scss/mixins" as mixin;
 
 .MailLoginFormINVALID {
     @include mixin.loginForm(red);

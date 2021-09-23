@@ -1,4 +1,4 @@
-@use '../scss/mixins' as mixin;
+@use "../scss/mixins" as mixin;
 .animatedGrid {
     display: grid;
     position: relative;
@@ -6,15 +6,14 @@
     height: 93%;
     width: 98%;
     margin: auto;
-    row-gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(45vw, 1fr));
-
-    z-index: 0;
+    gap: 5px;
+    grid-template-columns: 2fr 2fr;
+    overflow: hidden;
 }
 .lightPlate {
     @include mixin.plate(0);
 }
 
 .greyPlate {
-    @include mixin.plate(0.7);
+    @include mixin.plate(0.6);
 }

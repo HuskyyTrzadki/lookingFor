@@ -2,30 +2,41 @@ import AnimatedGrid from "./AnimatedGrid";
 import Circle from "./Circle";
 import Navbar from "./Navbar";
 import React, { useState } from "react";
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
-import LoginForm from "./MailLoginForm";
-import MailLoginForm from "./MailLoginForm";
+import MailRegisterForm from "./MailRegisterForm";
+import { useAuth } from "../context/AuthContext";
 
 import styles from "./StartingPage.module.scss";
+import MailLoginForm from "./MailLoginForm";
 
 const StartingPage = () => {
-  let text = "log in please";
-  const { user, setUser } = useContext(UserContext);
+  let text = "";
+  const { currentUser, signUp } = useAuth();
   const [showFbLogin, setShowFbLogin] = useState(false);
-  const [showMailLogin, setShowMailLogin] = useState(false);
-  user == "" ? (text = "Please Log in") : (text = `logged in with ${user}`);
+  const [showMailRegister, setShowMailRegister] = useState(false);
+  if (!currentUser) {
+    text = "Plase Log in";
+  } else {
+    currentUser.isAnonymous
+      ? (text = "logged in anonymously")
+      : (text = `logged in with ${currentUser.email}`);
+  }
   return (
     <div className={styles.StartingPage}>
       <Navbar text={text} />
       <AnimatedGrid />
-      {user == "" && !showFbLogin && !showMailLogin && (
-        <Circle
-          setShowFbLogin={setShowFbLogin}
-          setShowMailLogin={setShowMailLogin}
-        />
+      {!showFbLogin &&
+        !showMailRegister &&
+        currentUser !== "anonymous" &&
+        !currentUser && (
+          <Circle
+            setShowFbLogin={setShowFbLogin}
+            setShowMailRegister={setShowMailRegister}
+          />
+        )}
+      {!currentUser && showMailRegister && (
+        <MailRegisterForm setShowMailRegister={setShowMailRegister} />
       )}
-      {showMailLogin && user == "" && <MailLoginForm />}
+      )
     </div>
   );
 };

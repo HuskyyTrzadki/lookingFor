@@ -5,4 +5,24 @@
     clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
     background: linear-gradient(to right, rgb(0, 102, 255), rgb(153, 204, 255));
     height: 10%;
+    display: grid;
+
+    grid-template-columns: 1fr 3fr 1fr;
+    p {
+        font-size: 30%;
+        left: 5%;
+        position: relative;
+        color: white;
+        padding: 0;
+
+        margin: 0;
+    }
+    .Text {
+        font-size: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+    .nameOfWebsite {
+    }
 }
