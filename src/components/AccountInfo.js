@@ -5,24 +5,19 @@ import { useAuth } from "../context/AuthContext";
 import styles from "./MailRegisterForm.module.scss";
 import { Link } from "react-router-dom";
 
-const AccountInfo = ({ setShowMailRegister, setStep }) => {
+const AccountInfo = ({
+  setShowMailRegister,
+  values,
+  handleNext,
+  handleChange,
+}) => {
   const [x, setX] = useState(0);
-  const email = useRef();
-  const password = useRef();
-  const passwordConfirmation = useRef();
-  const 
 
   const [err, setErr] = useState("");
   const [loading, setLoading] = useState(false);
-  const [showNextArrow, setShowNextArrow] = useState(true);
-  const handleNext = () => {
-    console.log("next");
-    setStep(1);
-  };
-  const fileUploadHandler=()=>{
 
-  }
-
+  const fileUploadHandler = () => {};
+  console.log(values, handleChange);
   return (
     <div
       className={err ? styles.MailLoginFormINVALID : styles.MailLoginFormVALID}
@@ -41,70 +36,44 @@ const AccountInfo = ({ setShowMailRegister, setStep }) => {
           <input
             type="input"
             required
-            name="email"
+            name="FirstName"
+            defaultValue={values.firstName}
             className={styles.Input}
-            ref={email}
-            onChange={() => {
-              setErr("");
-            }}
+            onChange={
+              (() => {
+                setErr("");
+              },
+              handleChange("firstName"))
+            }
           />
           <span></span>
-          <label>email</label>
+          <label>firstName</label>
         </div>
         <div className={styles.txt_field}>
           <input
             required
-            type="password"
+            type="input"
+            defaultValue={values.secondName}
             className={styles.Input}
-            name="password"
-            ref={password}
-            onChange={(event) => {
-              setErr("");
-            }}
+            name="lastName"
+            onChange={
+              ((event) => {
+                setErr("");
+              },
+              handleChange("lastName"))
+            }
           />
           <span></span>
 
-          <label>password</label>
+          <label>lastName</label>
         </div>
-        <div className={styles.txt_field}>
-          <input
-            required
-            type="password"
-            className={styles.Input}
-            name="passwordConfirmastion"
-            ref={passwordConfirmation}
-            onChange={(event) => {
-              setErr("");
-            }}
-          />
-          <input
-            required
-            type="file"
-            className={styles.Input}
-            name="passwordConfirmastion"
-            ref={passwordConfirmation}
-            onChange={(event) => {
-              setErr("");
-            }}
-          />
-          <button onClick={this.fileUploadHandler} content="upload" />
-          <span></span>
-
-          <label>password</label>
-        </div>
-
         {err !== "" && <p>{err}</p>}
         <div className={styles.signIn_link}>
           <Link to="/login">
             <h6>Already have an account? login here!</h6>
           </Link>
         </div>
-        <BlueButton
-          disabled={loading}
-          event={setStep}
-          content="Next"
-          showArrow={showNextArrow}
-        />
+        <BlueButton disabled={loading} event={handleNext} content="Next" />
       </form>
       {console.log(err)}
       {err == ""}
