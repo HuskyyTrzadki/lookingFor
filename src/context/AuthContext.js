@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth } from "../firebase";
-
+import { storage } from "../firebase";
 const AuthContext = React.createContext();
 
 export function useAuth() {
@@ -15,6 +15,39 @@ export function AuthProvider({ children }) {
     console.log("registered");
     return auth.createUserWithEmailAndPassword(email, password);
   }
+  function uploadAvatar(avatar, userValues) {
+    const uploadTask = storage.ref(`courseMaterial/${avatar}/`).put(avatar);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        // file upload progress report
+      },
+      (error) => {
+        // file upload failed
+        console.log(error);
+      },
+      () => {
+        // file upload completed
+        storage
+          .ref(`courseMaterial`)
+          .child(`${avatar}`)
+          .getDownloadURL()
+          .then(
+            (url) => {
+              // got download URL
+              //setUrl(url);
+              handleChange(userValues, "avatarURL");
+            },
+            (error) => {
+              // failed to get download URL
+              console.log(error);
+            }
+          );
+      }
+    );
+  }
+
   function signInAnonymously() {
     return auth.signInAnonymously();
   }
@@ -56,6 +89,7 @@ export function AuthProvider({ children }) {
     updateEmail,
     updatePassword,
     signInAnonymously,
+    uploadAvatar,
   };
 
   return (

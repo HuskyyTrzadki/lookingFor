@@ -7,8 +7,7 @@ import { Link } from "react-router-dom";
 import AgeSlider from "./AgeSlider";
 import GenderPicker from "./GenderPicker";
 import axios from "axios";
-import { checkValuesAgainstBoundaries } from "react-range";
-
+import AvatarInput from "./AvatarInput";
 const PersonalInfo = ({
   setShowMailRegister,
   values,
@@ -82,6 +81,7 @@ const PersonalInfo = ({
         <AgeSlider values={values} handleChange={handleChange} />
 
         <GenderPicker values={values} handleChange={handleChange} />
+        <AvatarInput values={values} handleChange={handleChange} />
 
         {err !== "" && <p>{err}</p>}
         <div className={styles.signIn_link}>

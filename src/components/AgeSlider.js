@@ -1,10 +1,14 @@
 import { useState } from "react";
 import Slider from "@mui/material/Slider";
+import { color } from "@mui/system";
+import { red } from "@mui/material/colors";
 
 const AgeSlider = ({ values, handleChange }) => {
   return (
     <>
-      <p>Age</p>
+      <p style={{ color: values.age < 16 ? "#de0b66" : "black" }}>
+        {values.age < 16 ? "age(i m sorry, youre too young)" : "age"}
+      </p>
 
       <Slider
         name="age"
@@ -18,7 +22,6 @@ const AgeSlider = ({ values, handleChange }) => {
         aria-label="default"
         valueLabelDisplay="auto"
       />
-      {values.age < 16 && <p>i m sorry youre too young</p>}
     </>
   );
 };

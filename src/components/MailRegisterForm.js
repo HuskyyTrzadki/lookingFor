@@ -25,18 +25,26 @@ const MailRegisterForm = ({ setShowMailRegister }) => {
     email: "",
     age: 20,
     gender: "",
+    avatarURL: "",
   });
-  const handleChange = (e) => {
-    e.target.name === "firstName" || e.target.name === "lastName"
-      ? setMultiFormValues({
-          ...multiFormValues,
-          [e.target.name]:
-            e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1),
-        })
-      : setMultiFormValues({
-          ...multiFormValues,
-          [e.target.name]: e.target.value,
-        });
+  const handleChange = (e, name = "") => {
+    if (!name) {
+      e.target.name === "firstName" || e.target.name === "lastName"
+        ? setMultiFormValues({
+            ...multiFormValues,
+            [e.target.name]:
+              e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1),
+          })
+        : setMultiFormValues({
+            ...multiFormValues,
+            [e.target.name]: e.target.value,
+          });
+    } else {
+      setMultiFormValues({
+        ...multiFormValues,
+        [name]: e.target.value,
+      });
+    }
   };
 
   return (
