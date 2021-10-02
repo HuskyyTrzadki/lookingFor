@@ -10,24 +10,35 @@ import axios from "axios";
 import AvatarInput from "./AvatarInput";
 const PersonalInfo = ({
   setShowMailRegister,
-  values,
   handleNext,
-  handleChange,
-  setMultiFormValues,
+  setShowLoginCircle,
 }) => {
   const [x, setX] = useState(0);
+  const { handleChange, setValues, values, uploadAvatar } = useAuth();
 
   const [err, setErr] = useState("");
   const [loading, setLoading] = useState(false);
+  const [avatar, setAvatar] = useState(null);
+
+  const handleImage = (e) => {
+    if (e.target.files[0]) {
+      setAvatar(e.target.files[0]);
+    } else {
+      alert("please give us youre avatar");
+    }
+  };
   const guessGender = async (name) => {
-    console.log("calling");
     const result = await axios.get(`https://api.genderize.io?name=${name}`);
-    setMultiFormValues({
+    setValues({
       ...values,
       ["gender"]: result.data.gender,
     });
   };
-
+  const handleNextAndUploadAvatar = () => {
+    console.log("handleNextAndUpload");
+    handleNext();
+    uploadAvatar(avatar);
+  };
   return (
     <div
       className={err ? styles.MailLoginFormINVALID : styles.MailLoginFormVALID}
@@ -37,6 +48,8 @@ const PersonalInfo = ({
         <div
           className={styles.close}
           onClick={() => {
+            setShowLoginCircle(true);
+
             setShowMailRegister(false);
           }}
         ></div>
@@ -78,10 +91,10 @@ const PersonalInfo = ({
           <label>lastName</label>
         </div>
 
-        <AgeSlider values={values} handleChange={handleChange} />
+        <AgeSlider />
 
-        <GenderPicker values={values} handleChange={handleChange} />
-        <AvatarInput values={values} handleChange={handleChange} />
+        <GenderPicker />
+        <AvatarInput handleImage={handleImage} />
 
         {err !== "" && <p>{err}</p>}
         <div className={styles.signIn_link}>
@@ -89,7 +102,11 @@ const PersonalInfo = ({
             <h6>Already have an account? login here!</h6>
           </Link>
         </div>
-        <BlueButton disabled={loading} event={handleNext} content="Register!" />
+        <BlueButton
+          disabled={loading}
+          event={handleNextAndUploadAvatar}
+          content="next"
+        />
       </form>
       {console.log(err)}
       {err == ""}

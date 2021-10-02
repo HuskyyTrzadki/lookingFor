@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./BlueButton.module.scss";
-import BlueNextArrow from "./BlueNextArrow";
+import ButtonArrow from "./ButtonArrow";
 
 function BlueButton(props) {
   return (
@@ -10,7 +10,7 @@ function BlueButton(props) {
       onClick={props.event}
     >
       {props.content}
-      {!props.showNextArrow && <BlueNextArrow />}
+      {!props.showNextArrow && <ButtonArrow />}
     </button>
   );
 }

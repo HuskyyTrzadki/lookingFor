@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth } from "../firebase";
 import { storage } from "../firebase";
+import { firestore } from "../firebase";
 const AuthContext = React.createContext();
 
 export function useAuth() {
@@ -10,12 +11,47 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
+  const [values, setValues] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    age: 20,
+    gender: "",
+    avatarURL: "",
+  });
+  const handleChange = (e) => {
+    e.target.name === "firstName" || e.target.name === "lastName"
+      ? setValues({
+          ...values,
+          [e.target.name]:
+            e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1),
+        })
+      : setValues({
+          ...values,
+          [e.target.name]: e.target.value,
+        });
+  };
 
-  function signup(email, password) {
-    console.log("registered");
-    return auth.createUserWithEmailAndPassword(email, password);
+  function signup(password) {
+    try {
+      console.log(values);
+      auth
+        .createUserWithEmailAndPassword(values.email, password)
+        .then((resp) => {
+          return firestore.collection("users").doc(resp.user.uid).set({
+            firstName: values.firstName,
+            lastName: values.lastName,
+            age: values.age,
+            gender: values.gender,
+            avatarURL: values.avatarURL,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
   }
-  function uploadAvatar(avatar, userValues) {
+  function uploadAvatar(avatar) {
+    console.log("upload avatar");
     const uploadTask = storage.ref(`courseMaterial/${avatar}/`).put(avatar);
 
     uploadTask.on(
@@ -37,7 +73,10 @@ export function AuthProvider({ children }) {
             (url) => {
               // got download URL
               //setUrl(url);
-              handleChange(userValues, "avatarURL");
+              setValues({
+                ...values,
+                ["avatarURL"]: url,
+              });
             },
             (error) => {
               // failed to get download URL
@@ -82,6 +121,9 @@ export function AuthProvider({ children }) {
 
   const value = {
     currentUser,
+    values,
+    setValues,
+    handleChange,
     login,
     signup,
     logout,

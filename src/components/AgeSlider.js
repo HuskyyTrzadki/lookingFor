@@ -2,8 +2,11 @@ import { useState } from "react";
 import Slider from "@mui/material/Slider";
 import { color } from "@mui/system";
 import { red } from "@mui/material/colors";
+import { useAuth } from "../context/AuthContext";
 
-const AgeSlider = ({ values, handleChange }) => {
+const AgeSlider = () => {
+  const { handleChange, values } = useAuth();
+
   return (
     <>
       <p style={{ color: values.age < 16 ? "#de0b66" : "black" }}>

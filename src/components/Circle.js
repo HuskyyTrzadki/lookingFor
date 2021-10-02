@@ -5,7 +5,11 @@ import styles from "./Circle.module.scss";
 import { AuthProvider, UserContext } from "../context/AuthContext";
 import { useAuth } from "../context/AuthContext";
 
-const Circle = ({ setShowFbLogin, setShowMailRegister }) => {
+const Circle = ({
+  setShowFbLogin,
+  setShowMailRegister,
+  setShowLoginCircle,
+}) => {
   const { signInAnonymously, currentUser } = useAuth();
   const handleAnonymousSignIn = async () => {
     await signInAnonymously();
@@ -22,13 +26,17 @@ const Circle = ({ setShowFbLogin, setShowMailRegister }) => {
         <button
           className={styles.quarter}
           id={styles.mail}
-          onClick={() => setShowMailRegister(true)}
+          onClick={() => {
+            setShowMailRegister(true);
+            setShowLoginCircle(false);
+          }}
         ></button>
         <button
           id={styles.decline}
           className={styles.half}
           onClick={() => {
             handleAnonymousSignIn();
+            setShowLoginCircle(false);
           }}
         >
           {" "}

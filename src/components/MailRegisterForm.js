@@ -6,8 +6,9 @@ import styles from "./MailRegisterForm.module.scss";
 import { Link } from "react-router-dom";
 import AccountInfo from "./AccountInfo";
 import PersonalInfo from "./PersonalInfo";
-const MailRegisterForm = ({ setShowMailRegister }) => {
-  const [step, setStep] = useState(1);
+const MailRegisterForm = ({ setShowMailRegister, setShowLoginCircle }) => {
+  const [step, setStep] = useState(0);
+  //dodaj strzalke w lewo
   const getSteps = () => {
     return ["Account details", "User details"];
   };
@@ -19,53 +20,23 @@ const MailRegisterForm = ({ setShowMailRegister }) => {
   };
 
   const steps = getSteps();
-  const [multiFormValues, setMultiFormValues] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    age: 20,
-    gender: "",
-    avatarURL: "",
-  });
-  const handleChange = (e, name = "") => {
-    if (!name) {
-      e.target.name === "firstName" || e.target.name === "lastName"
-        ? setMultiFormValues({
-            ...multiFormValues,
-            [e.target.name]:
-              e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1),
-          })
-        : setMultiFormValues({
-            ...multiFormValues,
-            [e.target.name]: e.target.value,
-          });
-    } else {
-      setMultiFormValues({
-        ...multiFormValues,
-        [name]: e.target.value,
-      });
-    }
-  };
 
   return (
     <>
       {step === 0 && (
-        <AccountInfo
-          values={multiFormValues}
+        <PersonalInfo
+          //brakuje  use auth
           setShowMailRegister={setShowMailRegister}
-          handleChange={handleChange}
           handleNext={handleNext}
+          setShowLoginCircle={setShowLoginCircle}
+          //daj na accountinfo dwa przyciski zamiast jednego
         />
       )}
       {step === 1 && (
-        <PersonalInfo
-          values={multiFormValues}
+        <AccountInfo
           setShowMailRegister={setShowMailRegister}
-          handleChange={handleChange}
-          handleNext={handleNext}
-          setMultiFormValues={setMultiFormValues}
-
-          //daj na accountinfo dwa przyciski zamiast jednego
+          handlePrev={handlePrev}
+          setShowLoginCircle={setShowLoginCircle}
         />
       )}
     </>

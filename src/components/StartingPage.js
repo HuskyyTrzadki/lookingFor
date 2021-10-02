@@ -10,11 +10,12 @@ import MailLoginForm from "./MailLoginForm";
 
 const StartingPage = () => {
   let text = "";
-  const { currentUser, signUp } = useAuth();
+  const { currentUser } = useAuth();
   const [showFbLogin, setShowFbLogin] = useState(false);
   const [showMailRegister, setShowMailRegister] = useState(false);
+  const [showLoginCircle, setShowLoginCircle] = useState(true);
   if (!currentUser) {
-    text = "Plase Log in";
+    text = "Please Log in";
   } else {
     currentUser.isAnonymous
       ? (text = "logged in anonymously")
@@ -22,19 +23,21 @@ const StartingPage = () => {
   }
   return (
     <div className={styles.StartingPage}>
-      <Navbar text={text} />
+      <Navbar text={text} setShowLoginCircle={setShowLoginCircle} />
       <AnimatedGrid />
-      {!showFbLogin &&
-        !showMailRegister &&
-        currentUser !== "anonymous" &&
-        !currentUser && (
-          <Circle
-            setShowFbLogin={setShowFbLogin}
-            setShowMailRegister={setShowMailRegister}
-          />
-        )}
+      {showLoginCircle && !currentUser && (
+        //to zastap jednym setShowCircle!
+        <Circle
+          setShowLoginCircle={setShowLoginCircle}
+          setShowFbLogin={setShowFbLogin}
+          setShowMailRegister={setShowMailRegister}
+        />
+      )}
       {!currentUser && showMailRegister && (
-        <MailRegisterForm setShowMailRegister={setShowMailRegister} />
+        <MailRegisterForm
+          setShowMailRegister={setShowMailRegister}
+          setShowLoginCircle={setShowLoginCircle}
+        />
       )}
       )
     </div>

@@ -1,23 +1,37 @@
 import { useContext, useState, useRef, createRef } from "react";
-import React from "react";
 import BlueButton from "./BlueButton";
 import { useAuth } from "../context/AuthContext";
 import styles from "./MailRegisterForm.module.scss";
 import { Link } from "react-router-dom";
 
-const AccountInfo = ({
-  setShowMailRegister,
-  values,
-  handleNext,
-  handleChange,
-}) => {
-  const [x, setX] = useState(0);
+const AccountInfo = ({ setShowMailRegister, setShowLoginCircle }) => {
+  const { handleChange, setValues, values, signup } = useAuth();
 
+  const [x, setX] = useState(0);
+  const passwordRef = useRef();
+  const passwordConfirmRef = useRef();
   const [err, setErr] = useState("");
   const [loading, setLoading] = useState(false);
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-  const fileUploadHandler = () => {};
-  console.log(values, handleChange);
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setErr("Passwords do not match");
+    }
+
+    try {
+      setErr("");
+      setLoading(true);
+      await console.log("sginUP!!");
+      console.log(passwordRef.current.value);
+      signup(passwordRef.current.value);
+    } catch {
+      setErr("Failed to create an account");
+    }
+    setLoading(false);
+    setShowMailRegister(false);
+  }
+
   return (
     <div
       className={err ? styles.MailLoginFormINVALID : styles.MailLoginFormVALID}
@@ -27,6 +41,8 @@ const AccountInfo = ({
         <div
           className={styles.close}
           onClick={() => {
+            setShowLoginCircle(true);
+
             setShowMailRegister(false);
           }}
         ></div>
@@ -36,44 +52,59 @@ const AccountInfo = ({
           <input
             type="input"
             required
-            name="FirstName"
-            defaultValue={values.firstName}
+            name="email"
             className={styles.Input}
-            onChange={
-              (() => {
-                setErr("");
-              },
-              handleChange("firstName"))
-            }
+            onChange={(e) => {
+              console.log(values);
+              setErr("");
+              handleChange(e);
+            }}
           />
           <span></span>
-          <label>firstName</label>
+          <label>email</label>
         </div>
         <div className={styles.txt_field}>
           <input
             required
-            type="input"
+            type="password"
             defaultValue={values.secondName}
             className={styles.Input}
-            name="lastName"
-            onChange={
-              ((event) => {
-                setErr("");
-              },
-              handleChange("lastName"))
-            }
+            name="password"
+            ref={passwordRef}
+            onChange={() => {
+              setErr("");
+            }}
           />
           <span></span>
-
-          <label>lastName</label>
+          <label>password</label>
         </div>
+        <div className={styles.txt_field}>
+          <input
+            type="password"
+            required
+            name="password"
+            defaultValue={values.firstName}
+            className={styles.Input}
+            ref={passwordConfirmRef}
+            onChange={() => {
+              setErr("");
+            }}
+          />
+          <span></span>
+          <label>passwordConfirmation</label>
+        </div>
+
         {err !== "" && <p>{err}</p>}
         <div className={styles.signIn_link}>
           <Link to="/login">
             <h6>Already have an account? login here!</h6>
           </Link>
         </div>
-        <BlueButton disabled={loading} event={handleNext} content="Next" />
+        <BlueButton
+          disabled={loading}
+          event={handleSubmit}
+          content="register"
+        />
       </form>
       {console.log(err)}
       {err == ""}

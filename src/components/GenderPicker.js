@@ -2,7 +2,10 @@ import styles from "./GenderPicker.module.scss";
 import woman from "../assets/woman.svg";
 import man from "../assets/man.svg";
 import { useState } from "react";
-const GenderPicker = ({ values, handleChange }) => {
+import { useAuth } from "../context/AuthContext";
+const GenderPicker = () => {
+  const { handleChange, values } = useAuth();
+
   const isRadioSelected = (value) => {
     return value === values.gender;
   };

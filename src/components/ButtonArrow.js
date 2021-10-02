@@ -1,6 +1,6 @@
-import styles from "./BlueNextArrow.module.scss";
+import styles from "./ButtonArrow.module.scss";
 
-function BlueNextArrow() {
+function ButtonArrow() {
   return (
     <div className={styles.arrow}>
       <div className={styles.arrowTop}></div>
@@ -8,4 +8,4 @@ function BlueNextArrow() {
     </div>
   );
 }
-export default BlueNextArrow;
+export default ButtonArrow;
