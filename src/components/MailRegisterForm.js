@@ -6,7 +6,11 @@ import styles from "./MailRegisterForm.module.scss";
 import { Link } from "react-router-dom";
 import AccountInfo from "./AccountInfo";
 import PersonalInfo from "./PersonalInfo";
-const MailRegisterForm = ({ setShowMailRegister, setShowLoginCircle }) => {
+const MailRegisterForm = ({
+  setShowMailRegister,
+  setShowLoginCircle,
+  setShowLoginForm,
+}) => {
   const [step, setStep] = useState(0);
   //dodaj strzalke w lewo
   const getSteps = () => {
@@ -29,6 +33,7 @@ const MailRegisterForm = ({ setShowMailRegister, setShowLoginCircle }) => {
           setShowMailRegister={setShowMailRegister}
           handleNext={handleNext}
           setShowLoginCircle={setShowLoginCircle}
+          setShowLoginForm={setShowLoginForm}
           //daj na accountinfo dwa przyciski zamiast jednego
         />
       )}

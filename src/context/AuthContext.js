@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth } from "../firebase";
 import { storage } from "../firebase";
+import { database } from "../firebase";
 import { firestore } from "../firebase";
 const AuthContext = React.createContext();
 
@@ -48,6 +49,7 @@ export function AuthProvider({ children }) {
         });
     } catch (error) {
       console.log(error);
+      console.log("nie udalo sie");
     }
   }
   function uploadAvatar(avatar) {
@@ -86,6 +88,17 @@ export function AuthProvider({ children }) {
       }
     );
   }
+  function getUserData() {
+    return new Promise((res, rej) => {
+      if (currentUser !== null) {
+        firestore
+          .collection("users")
+          .doc(currentUser.uid)
+          .get()
+          .then((doc) => res(doc.data()));
+      }
+    });
+  }
 
   function signInAnonymously() {
     return auth.signInAnonymously();
@@ -99,7 +112,13 @@ export function AuthProvider({ children }) {
   }
 
   function resetPassword(email) {
-    return auth.sendPasswordResetEmail(email);
+    try {
+      auth.sendPasswordResetEmail(email);
+    } catch (error) {
+      console.error(error);
+      // expected output: ReferenceError: nonExistentFunction is not defined
+      // Note - error messages will vary depending on browser
+    }
   }
 
   function updateEmail(email) {
@@ -132,6 +151,7 @@ export function AuthProvider({ children }) {
     updatePassword,
     signInAnonymously,
     uploadAvatar,
+    getUserData,
   };
 
   return (

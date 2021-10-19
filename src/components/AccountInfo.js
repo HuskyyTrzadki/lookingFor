@@ -4,7 +4,11 @@ import { useAuth } from "../context/AuthContext";
 import styles from "./MailRegisterForm.module.scss";
 import { Link } from "react-router-dom";
 
-const AccountInfo = ({ setShowMailRegister, setShowLoginCircle }) => {
+const AccountInfo = ({
+  setShowMailRegister,
+  setShowLoginCircle,
+  handlePrev,
+}) => {
   const { handleChange, setValues, values, signup } = useAuth();
 
   const [x, setX] = useState(0);
@@ -22,7 +26,7 @@ const AccountInfo = ({ setShowMailRegister, setShowLoginCircle }) => {
     try {
       setErr("");
       setLoading(true);
-      await console.log("sginUP!!");
+      await console.log("signUP!!");
       console.log(passwordRef.current.value);
       signup(passwordRef.current.value);
     } catch {
@@ -95,15 +99,22 @@ const AccountInfo = ({ setShowMailRegister, setShowLoginCircle }) => {
         </div>
 
         {err !== "" && <p>{err}</p>}
-        <div className={styles.signIn_link}>
-          <Link to="/login">
-            <h6>Already have an account? login here!</h6>
-          </Link>
-        </div>
+        <div className={styles.signIn_link}></div>
+        <BlueButton
+          disabled={loading}
+          event={(e) => {
+            handlePrev();
+          }}
+          content="back"
+          isBig="false"
+          directionOfArrow="left"
+        />
         <BlueButton
           disabled={loading}
           event={handleSubmit}
           content="register"
+          isBig="false"
+          directionOfArrow="right"
         />
       </form>
       {console.log(err)}

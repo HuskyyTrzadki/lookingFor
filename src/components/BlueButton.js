@@ -6,11 +6,15 @@ function BlueButton(props) {
   return (
     <button
       disabled={props.loading}
-      className={styles.BlueButton}
+      className={`${styles.BlueButton} ${
+        props.isBig == "true" ? styles.big : styles.small
+      }`}
       onClick={props.event}
     >
       {props.content}
-      {!props.showNextArrow && <ButtonArrow />}
+      {!props.showNextArrow && (
+        <ButtonArrow direction={props.directionOfArrow} />
+      )}
     </button>
   );
 }

@@ -1,59 +1,61 @@
 import { useContext, useState } from "react";
+import useClickOutside from "../customHooks/useClickOutside";
 import React from "react";
 import BlueButton from "./BlueButton";
+import PasswordReset from "./PasswordReset";
 import { useAuth } from "../context/AuthContext";
 import styles from "./MailLoginForm.module.scss";
 import { Link } from "react-router-dom";
-const MailLoginForm = ({ setShowMailLogin }) => {
-  const { user, setUser } = useAuth();
-  const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
-  const [err, setErr] = useState("");
-  ///
-  const adminUser = {
-    email: "admin@admin.com",
-    password: "admin123",
-  };
-  //jak zalogowano to zaktualizuj userContext o cale info o uzytkowniku na podstawie maila
-  const authorization = (userinfo) => {
-    if (JSON.stringify(userinfo) === JSON.stringify(adminUser)) {
-      setUser(userinfo.email);
-      setErr("");
+import { useRef } from "react";
+const MailLoginForm = ({ setShowLoginForm, setShowLoginCircle }) => {
+  const { login } = useAuth();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const modalRef = useRef();
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-      //pomyslnie zalogowano, zamknij okno i przenies na glowna
-      //dodaj rozroznianie pomiedzy zlym haslem a zlym
-    } else {
-      setErr("account is not valid");
-      setLoginInfo({ password: "" });
-    }
-  };
-  const submitHandler = (e) => {
+  const [error, setError] = useState("");
+
+  //jak zalogowano to zaktualizuj userContext o cale info o uzytkowniku na podstawie maila
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    authorization(loginInfo);
-  };
+
+    try {
+      setError("");
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value);
+      setShowLoginForm(false);
+    } catch {
+      setError("Failed to log in");
+    }
+
+    setLoading(false);
+  }
+
+  useClickOutside(modalRef, () => {
+    if (open) setOpen(false);
+  });
   return (
     <div
-      className={err ? styles.MailLoginFormINVALID : styles.MailLoginFormVALID}
+      className={
+        error ? styles.MailLoginFormINVALID : styles.MailLoginFormVALID
+      }
     >
       <nav className={styles.loginNavbar}>
         <h1>LoginForm</h1>
         <div
           className={styles.close}
-          onClick={() => setShowMailLogin(false)}
+          onClick={() => {
+            setShowLoginForm(false);
+            setShowLoginCircle(true);
+          }}
         ></div>
       </nav>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className={styles.txt_field}>
-          <input
-            type="text"
-            required
-            value={loginInfo.login}
-            name="email"
-            id="email"
-            onChange={(event) => {
-              setLoginInfo({ ...loginInfo, email: event.target.value });
-              setErr("");
-            }}
-          />
+          <input type="text" required ref={emailRef} name="email" id="email" />
           <span></span>
           <label>Email</label>
         </div>
@@ -61,29 +63,31 @@ const MailLoginForm = ({ setShowMailLogin }) => {
           <input
             type="password"
             required
-            type="password"
+            ref={passwordRef}
             className={styles.Input}
-            value={loginInfo.password}
             name="password"
             id="password"
-            onChange={(event) => {
-              setLoginInfo({ ...loginInfo, password: event.target.value });
-              setErr("");
-            }}
+            onChange={(event) => {}}
           />
           <span></span>
           <label>Password</label>
         </div>
-        {err !== "" && <p>account not valid</p>}
+        {error !== "" && <p>account not valid</p>}
         <div className={styles.pass}>
-          <h2>Forgot Password?</h2>
+          <h2
+            onClick={() => {
+              setOpen(true);
+            }}
+          >
+            <p>Forgot Password?</p>
+          </h2>
         </div>
+        <PasswordReset modalRef={modalRef} open={open} />
+
         <div className={styles.signup_link}>
-          <Link to="/register">
-            <h6>don't have account yet? register here!</h6>
-          </Link>
+          <h6>don't have account yet? register here!</h6>
         </div>
-        <BlueButton event={submitHandler} content="log in" />
+        <BlueButton event={handleSubmit} content="log in" isBig="true" />
       </form>
     </div>
   );

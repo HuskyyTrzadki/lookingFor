@@ -12,6 +12,7 @@ const PersonalInfo = ({
   setShowMailRegister,
   handleNext,
   setShowLoginCircle,
+  setShowLoginForm,
 }) => {
   const [x, setX] = useState(0);
   const { handleChange, setValues, values, uploadAvatar } = useAuth();
@@ -98,14 +99,21 @@ const PersonalInfo = ({
 
         {err !== "" && <p>{err}</p>}
         <div className={styles.signIn_link}>
-          <Link to="/login">
-            <h6>Already have an account? login here!</h6>
-          </Link>
+          <h6
+            onClick={() => {
+              setShowLoginForm(true);
+              setShowMailRegister(false);
+            }}
+          >
+            Already have an account? login here!
+          </h6>
         </div>
         <BlueButton
           disabled={loading}
           event={handleNextAndUploadAvatar}
           content="next"
+          isBig="true"
+          directionOfArrow="right"
         />
       </form>
       {console.log(err)}
