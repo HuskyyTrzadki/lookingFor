@@ -1,11 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import useClickOutside from "../customHooks/useClickOutside";
 import React from "react";
 import BlueButton from "./BlueButton";
 import PasswordReset from "./PasswordReset";
 import { useAuth } from "../context/AuthContext";
 import styles from "./MailLoginForm.module.scss";
-import { Link } from "react-router-dom";
 import { useRef } from "react";
 const MailLoginForm = ({ setShowLoginForm, setShowLoginCircle }) => {
   const { login } = useAuth();

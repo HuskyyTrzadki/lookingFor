@@ -114,7 +114,7 @@ const PersonalInfo = ({
         />
       </form>
       {console.log(err)}
-      {err == ""}
+      {err === ""}
     </div>
   );
 };

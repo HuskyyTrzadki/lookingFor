@@ -7,7 +7,7 @@ function BlueButton(props) {
     <button
       disabled={props.loading}
       className={`${styles.BlueButton} ${
-        props.isBig == "true" ? styles.big : styles.small
+        props.isBig === "true" ? styles.big : styles.small
       }`}
       onClick={props.event}
     >
