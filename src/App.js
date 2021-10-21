@@ -4,7 +4,6 @@ import sport from "./components/sport";
 import adventure from "./components/adventure";
 import party from "./components/party";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useState } from "react";
 
 import { AuthProvider } from "./context/AuthContext";
 const App = () => {
