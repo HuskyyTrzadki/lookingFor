@@ -8,7 +8,7 @@ const Circle = ({
   setShowMailRegister,
   setShowLoginCircle,
 }) => {
-  const { signInAnonymously, currentUser } = useAuth();
+  const { signInAnonymously } = useAuth();
   const handleAnonymousSignIn = async () => {
     await signInAnonymously();
 

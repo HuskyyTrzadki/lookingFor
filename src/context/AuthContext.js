@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth } from "../firebase";
 import { storage } from "../firebase";
-import { database } from "../firebase";
 import { firestore } from "../firebase";
 const AuthContext = React.createContext();
 
@@ -77,7 +76,7 @@ export function AuthProvider({ children }) {
               //setUrl(url);
               setValues({
                 ...values,
-                ["avatarURL"]: url,
+                "avatarURL": url,
               });
             },
             (error) => {

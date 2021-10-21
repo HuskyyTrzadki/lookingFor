@@ -9,9 +9,7 @@ const MailRegisterForm = ({
 }) => {
   const [step, setStep] = useState(0);
   //dodaj strzalke w lewo
-  const getSteps = () => {
-    return ["Account details", "User details"];
-  };
+  
   const handleNext = () => {
     setStep((nextStep) => nextStep + 1);
   };
@@ -19,7 +17,6 @@ const MailRegisterForm = ({
     setStep((prevStep) => prevStep - 1);
   };
 
-  const steps = getSteps();
 
   return (
     <>

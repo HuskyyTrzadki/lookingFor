@@ -8,7 +8,7 @@ const AccountInfo = ({
   setShowLoginCircle,
   handlePrev,
 }) => {
-  const { handleChange, setValues, values, signup } = useAuth();
+  const { handleChange, values, signup } = useAuth();
 
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
@@ -116,7 +116,7 @@ const AccountInfo = ({
         />
       </form>
       {console.log(err)}
-      {err == ""}
+      {err === ""}
     </div>
   );
 };

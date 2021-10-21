@@ -12,7 +12,6 @@ const StartingPage = () => {
   const { currentUser, getUserData } = useAuth();
 
   let text = "";
-  const [showFbLogin, setShowFbLogin] = useState(false);
   const [showMailRegister, setShowMailRegister] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [showLoginCircle, setShowLoginCircle] = useState(true);
@@ -34,7 +33,6 @@ const StartingPage = () => {
         //to zastap jednym setShowCircle!
         <Circle
           setShowLoginCircle={setShowLoginCircle}
-          setShowFbLogin={setShowFbLogin}
           setShowMailRegister={setShowMailRegister}
         />
       )}

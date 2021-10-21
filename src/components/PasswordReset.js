@@ -4,7 +4,7 @@ import styles from "./PasswordReset.module.scss";
 export default function PasswordReset({ modalRef, open }) {
   const emailRef = useRef();
   const { resetPassword } = useAuth();
-  const [error, setError] = useState("");
+  const [setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("type email to reset password");
 

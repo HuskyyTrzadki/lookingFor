@@ -15,7 +15,6 @@ const PersonalInfo = ({
   const { handleChange, setValues, values, uploadAvatar } = useAuth();
 
   const [err, setErr] = useState("");
-  const [loading, setLoading] = useState(false);
   const [avatar, setAvatar] = useState(null);
 
   const handleImage = (e) => {
@@ -29,7 +28,7 @@ const PersonalInfo = ({
     const result = await axios.get(`https://api.genderize.io?name=${name}`);
     setValues({
       ...values,
-      ["gender"]: result.data.gender,
+      "gender": result.data.gender,
     });
   };
   const handleNextAndUploadAvatar = () => {
@@ -106,7 +105,6 @@ const PersonalInfo = ({
           </h6>
         </div>
         <BlueButton
-          disabled={loading}
           event={handleNextAndUploadAvatar}
           content="next"
           isBig="true"
