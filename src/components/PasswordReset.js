@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { Link } from "react-router-dom";
 import styles from "./PasswordReset.module.scss";
 export default function PasswordReset({ modalRef, open }) {
   const emailRef = useRef();
