@@ -1,6 +1,6 @@
 import styles from "./LogOutButton.module.scss";
 import { useAuth } from "../context/AuthContext";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const LogOutButton = ({ setShowLoginCircle }) => {
   const { logout } = useAuth();

@@ -1,8 +1,6 @@
-import { useContext } from "react";
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styles from "./Circle.module.scss";
-import { AuthProvider, UserContext } from "../context/AuthContext";
 import { useAuth } from "../context/AuthContext";
 
 const Circle = ({
@@ -19,30 +17,28 @@ const Circle = ({
 
   return (
     <div className={styles.loginCircle}>
-      <Router>
-        <Link to="/logInWithFb">
-          <button id={styles.fb} className={styles.quarter}></button>
-        </Link>
-        <button
-          className={styles.quarter}
-          id={styles.mail}
-          onClick={() => {
-            setShowMailRegister(true);
-            setShowLoginCircle(false);
-          }}
-        ></button>
-        <button
-          id={styles.decline}
-          className={styles.half}
-          onClick={() => {
-            handleAnonymousSignIn();
-            setShowLoginCircle(false);
-          }}
-        >
-          {" "}
-          no, maybe later
-        </button>
-      </Router>
+      <Link to="/logInWithFb">
+        <button id={styles.fb} className={styles.quarter}></button>
+      </Link>
+      <button
+        className={styles.quarter}
+        id={styles.mail}
+        onClick={() => {
+          setShowMailRegister(true);
+          setShowLoginCircle(false);
+        }}
+      ></button>
+      <button
+        id={styles.decline}
+        className={styles.half}
+        onClick={() => {
+          handleAnonymousSignIn();
+          setShowLoginCircle(false);
+        }}
+      >
+        {" "}
+        no, maybe later
+      </button>
     </div>
   );
 };

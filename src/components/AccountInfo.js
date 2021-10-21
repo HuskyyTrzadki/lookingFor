@@ -1,8 +1,7 @@
-import { useContext, useState, useRef, createRef } from "react";
+import { useState, useRef } from "react";
 import BlueButton from "./BlueButton";
 import { useAuth } from "../context/AuthContext";
 import styles from "./MailRegisterForm.module.scss";
-import { Link } from "react-router-dom";
 
 const AccountInfo = ({
   setShowMailRegister,
@@ -11,7 +10,6 @@ const AccountInfo = ({
 }) => {
   const { handleChange, setValues, values, signup } = useAuth();
 
-  const [x, setX] = useState(0);
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const [err, setErr] = useState("");

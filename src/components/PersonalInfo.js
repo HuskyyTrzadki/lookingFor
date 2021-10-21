@@ -1,9 +1,7 @@
-import { useContext, useState, useRef, createRef } from "react";
-import React from "react";
+import { useState } from "react";
 import BlueButton from "./BlueButton";
 import { useAuth } from "../context/AuthContext";
 import styles from "./MailRegisterForm.module.scss";
-import { Link } from "react-router-dom";
 import AgeSlider from "./AgeSlider";
 import GenderPicker from "./GenderPicker";
 import axios from "axios";
@@ -14,7 +12,6 @@ const PersonalInfo = ({
   setShowLoginCircle,
   setShowLoginForm,
 }) => {
-  const [x, setX] = useState(0);
   const { handleChange, setValues, values, uploadAvatar } = useAuth();
 
   const [err, setErr] = useState("");

@@ -1,6 +1,3 @@
-import { useAuth } from "../context/AuthContext";
-import { useState } from "react";
-
 const AvatarInput = ({ handleImage }) => {
   return (
     <>

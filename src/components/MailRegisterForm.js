@@ -1,9 +1,5 @@
-import { useContext, useState, useRef, createRef } from "react";
+import { useState } from "react";
 import React from "react";
-import BlueButton from "./BlueButton";
-import { useAuth } from "../context/AuthContext";
-import styles from "./MailRegisterForm.module.scss";
-import { Link } from "react-router-dom";
 import AccountInfo from "./AccountInfo";
 import PersonalInfo from "./PersonalInfo";
 const MailRegisterForm = ({
