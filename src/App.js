@@ -1,6 +1,6 @@
 import StartingPage from "./components/StartingPage";
 import Sstudy from "./components/Sstudy";
-import Ssport from "./components/Ssport";
+import sSport from "./components/Ssport";
 import Sadventure from "./components/Sadventure";
 import Sparty from "./components/Sparty";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
