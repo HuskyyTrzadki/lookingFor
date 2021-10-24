@@ -1,4 +1,4 @@
-const Sstudy = () => {
+const Study = () => {
   return <div></div>;
 };
-export default Sstudy;
+export default Study;

@@ -18,12 +18,14 @@
         margin: 0;
     }
     .Text {
-        font-size: 30%;
+        @media only screen and (max-width: 600px) {
+            font-size: 20%;
+        }
+        font-size: 40%;
+
         margin-left: auto;
         margin-right: auto;
         position: relative;
-        left:0%;
-    }
-    .nameOfWebsite {
+        left: 0%;
     }
 }

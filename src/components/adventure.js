@@ -1,4 +1,4 @@
-const Sadventure = () => {
+const Adventure = () => {
   return <div>xdd</div>;
 };
-export default Sadventure;
+export default Adventure;

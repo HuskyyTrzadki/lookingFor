@@ -1,4 +1,4 @@
-const Sparty = () => {
+const Party = () => {
   return <div></div>;
 };
-export default Sparty;
+export default Party;

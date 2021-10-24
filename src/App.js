@@ -1,8 +1,8 @@
 import StartingPage from "./components/StartingPage";
-import study from "./components/study";
-import sport from "./components/sport";
-import adventure from "./components/adventure";
-import party from "./components/party";
+import Study from "./components/Study";
+import Sport from "./components/Sport";
+import Adventure from "./components/Adventure";
+import Party from "./components/Party";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { AuthProvider } from "./context/AuthContext";
@@ -13,10 +13,10 @@ const App = () => {
         {" "}
         <Switch>
           <Route exact path="/" component={StartingPage} />
-          <Route exact path="/party" component={study} />
-          <Route exact path="/sport" component={sport} />
-          <Route exact path="/adventure" component={adventure} />
-          <Route exact path="/study" component={party} />
+          <Route exact path="/Party" component={Study} />
+          <Route exact path="/Sport" component={Sport} />
+          <Route exact path="/Adventure" component={Adventure} />
+          <Route exact path="/Study" component={Party} />
         </Switch>
       </AuthProvider>
     </Router>

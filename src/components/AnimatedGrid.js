@@ -10,46 +10,44 @@ function AnimatedGrid() {
   };
 
   return (
-    <Router>
-      <div className={styles.animatedGrid}>
-        <div className={plateStyling.isGrey}>
-          <Link to="/adventure">
-            {currentUser && (
-              <div className={styles.imageOverLay}>
-                <p className={styles.imageDescription}>adventure</p>
-              </div>
-            )}
-          </Link>
-        </div>
-        <div className={plateStyling.isGrey}>
-          <Link to="/party">
-            {currentUser && (
-              <div className={styles.imageOverLay}>
-                <p className={styles.imageDescription}>party</p>
-              </div>
-            )}
-          </Link>
-        </div>
-        <div className={plateStyling.isGrey}>
+    <div className={styles.animatedGrid}>
+      <div className={plateStyling.isGrey}>
+        <Link to="/Adventure">
           {currentUser && (
-            <Link to="/sport">
-              <div className={styles.imageOverLay}>
-                <p className={styles.imageDescription}>sport</p>
-              </div>
-            </Link>
+            <div className={styles.imageOverLay}>
+              <p className={styles.imageDescription}>adventure</p>
+            </div>
           )}
-        </div>
-        <div className={plateStyling.isGrey}>
-          <Link to="/study">
-            {currentUser && (
-              <div className={styles.imageOverLay}>
-                <p className={styles.imageDescription}>study</p>
-              </div>
-            )}
-          </Link>
-        </div>
+        </Link>
       </div>
-    </Router>
+      <div className={plateStyling.isGrey}>
+        <Link to="/Party">
+          {currentUser && (
+            <div className={styles.imageOverLay}>
+              <p className={styles.imageDescription}>party</p>
+            </div>
+          )}
+        </Link>
+      </div>
+      <div className={plateStyling.isGrey}>
+        {currentUser && (
+          <Link to="/Sport">
+            <div className={styles.imageOverLay}>
+              <p className={styles.imageDescription}>sport</p>
+            </div>
+          </Link>
+        )}
+      </div>
+      <div className={plateStyling.isGrey}>
+        <Link to="/Study">
+          {currentUser && (
+            <div className={styles.imageOverLay}>
+              <p className={styles.imageDescription}>study</p>
+            </div>
+          )}
+        </Link>
+      </div>
+    </div>
   );
 }
 export default AnimatedGrid;
