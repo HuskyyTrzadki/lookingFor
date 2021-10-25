@@ -1711,6 +1711,32 @@
   "resolved" "https://registry.nlark.com/@firebase/webchannel-wrapper/download/@firebase/webchannel-wrapper-0.5.1.tgz"
   "version" "0.5.1"
 
+"@fortawesome/fontawesome-common-types@^0.2.36":
+  "integrity" "sha1-tE5S2ztrIFI+DFfvjELTFVMsuQM="
+  "resolved" "https://registry.nlark.com/@fortawesome/fontawesome-common-types/download/@fortawesome/fontawesome-common-types-0.2.36.tgz"
+  "version" "0.2.36"
+
+"@fortawesome/fontawesome-svg-core@^1.2.36", "@fortawesome/fontawesome-svg-core@~1 || >=1.3.0-beta1":
+  "integrity" "sha1-Ty6m93gpjgxHxlJM4uf9WOtpMOM="
+  "resolved" "https://registry.nlark.com/@fortawesome/fontawesome-svg-core/download/@fortawesome/fontawesome-svg-core-1.2.36.tgz"
+  "version" "1.2.36"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.36"
+
+"@fortawesome/free-solid-svg-icons@^5.15.4":
+  "integrity" "sha1-Kmjz/D3doS5SZFZUFCueTo+7bMU="
+  "resolved" "https://registry.nlark.com/@fortawesome/free-solid-svg-icons/download/@fortawesome/free-solid-svg-icons-5.15.4.tgz"
+  "version" "5.15.4"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.36"
+
+"@fortawesome/react-fontawesome@^0.1.16":
+  "integrity" "sha1-znZlSQIU4g+Sk2jWtl9oiEqZJ2o="
+  "resolved" "https://registry.npmmirror.com/@fortawesome/react-fontawesome/download/@fortawesome/react-fontawesome-0.1.16.tgz"
+  "version" "0.1.16"
+  dependencies:
+    "prop-types" "^15.7.2"
+
 "@grpc/grpc-js@^1.3.2":
   "integrity" "sha1-WLaHr/k7dDqv3iN/0u6aMlnX8tg="
   "resolved" "https://registry.nlark.com/@grpc/grpc-js/download/@grpc/grpc-js-1.3.7.tgz"
@@ -7660,6 +7686,7 @@
     "jest-snapshot" "^26.6.2"
 
 "jest-resolve@*":
+  "integrity" "sha1-Bw/nFZr4ewPlD1LqXhfulbvuQOE="
   "version" "26.6.0"
   dependencies:
     "@jest/types" "^26.6.0"
@@ -10744,7 +10771,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@*", "react@^0.14.0 || ^15.0.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^15.0.0 || ^16.0.0", "react@^15.4.0 || ^16.0.0", "react@^16.3.0", "react@^16.8.0 || ^17.0.0", "react@^16.8.0-0 || ^17.0.0-0", "react@^17.0.2", "react@>= 16", "react@>=0.14.0", "react@>=15", "react@>=15.0.0", "react@>=16.3.0", "react@>=16.3.2", "react@>=16.6.0", "react@>=16.8.0", "react@15.x", "react@17.0.2":
+"react@*", "react@^0.14.0 || ^15.0.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^15.0.0 || ^16.0.0", "react@^15.4.0 || ^16.0.0", "react@^16.3.0", "react@^16.8.0 || ^17.0.0", "react@^16.8.0-0 || ^17.0.0-0", "react@^17.0.2", "react@>= 16", "react@>=0.14.0", "react@>=15", "react@>=15.0.0", "react@>=16.3.0", "react@>=16.3.2", "react@>=16.6.0", "react@>=16.8.0", "react@>=16.x", "react@15.x", "react@17.0.2":
   "integrity" "sha1-0LXMUW0p6z7uOD91tihkz7aAADc="
   "resolved" "https://registry.nlark.com/react/download/react-17.0.2.tgz"
   "version" "17.0.2"
