@@ -14,7 +14,9 @@ const LogOutButton = ({ setShowLoginCircle }) => {
       alert("cos poszlo nie tak");
       console.log(error);
     }
-    setShowLoginCircle(true);
+    if (setShowLoginCircle) {
+      setShowLoginCircle(true);
+    }
   }
   return (
     <button className={styles.LogOutButton} onClick={handleLogout}>

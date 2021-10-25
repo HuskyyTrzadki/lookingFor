@@ -4,7 +4,7 @@
 
     clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
     background: linear-gradient(to right, rgb(0, 102, 255), rgb(153, 204, 255));
-    height: 10%;
+    height: 41px;
     display: grid;
 
     grid-template-columns: 1fr 3fr 1fr;
@@ -28,4 +28,7 @@
         position: relative;
         left: 0%;
     }
+}
+.name {
+    font-size: 30px;
 }

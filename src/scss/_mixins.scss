@@ -1,8 +1,13 @@
 @mixin plate($scaleOfGrey) {
     @if $scaleOfGrey>0 {
+        //lighten up after login(without plates entrance)
         animation: lightenUp 1000ms backwards;
-    } @else {
+    } @else if($scaleOfGrey<0) {
+        //just starting animation
         animation: platesEntrance 500ms ease-out backwards, darkenUp 2000ms ease-out forwards;
+    } @else if($scaleOfGrey==0) {
+        //starting animation, but after login(with plates entrance)
+        animation: platesEntrance 500ms ease-out backwards;
     }
     &:nth-child(1) {
         background-image: url(../assets/adventure.jpg);
@@ -166,10 +171,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     @media (max-width: 700px) {
-    
         width: 80%;
-
-    
     }
     width: 40%;
 

@@ -1,8 +1,14 @@
 import styles from "./Sport.module.scss";
+import OptionNavbar from "./OptionNavbar";
+import Navbar from "./Navbar";
 
 const Sport = () => {
   return (
     <div className={styles.Sport}>
+      <Navbar text={"there will be sports advertisements here"} />
+
+      <OptionNavbar />
+
       <main>
         The standard Lorem Ipsum passage, used since the 1500s "Lorem ipsum
         dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -52,65 +58,8 @@ const Sport = () => {
         necessitatibus saepe eveniet ut et voluptates repudiandae sint et
         molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente
         delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut
-        perferendis doloribus asperiores repellat." 1914 translation by H.
-        Rackham "On the other hand, we denounce with righteous indignation and
-        dislike men who are so beguiled and demoralized by the charms of
-        pleasure of the moment, so blinded by desire, that they cannot foresee
-        the pain and trouble that are bound to ensue; and equal blame belongs to
-        those who fail in their duty through weakness of will, which is the same
-        as saying through shrinking from toil and pain. These cases are
-        perfectly simple and easy to distinguish. In a free hour, when our power
-        of choice is untrammelled and when nothing prevents our being able to do
-        what we like best, every pleasure is to be welcomed and every pain
-        avoided. But in certain circumstances and owing to the claims of duty or
-        the obligations of business it will frequently occur that pleasures have
-        to be repudiated and annoyances accepted. The wise man therefore always
-        holds in these matters to this principle of selection: he rejects
-        pleasures to secure other greater pleasures, or else he endures pains to
-        avoid worse pains." Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit. Donec ut nisl bibendum, convallis lacus sit amet, faucibus tortor.
-        Vestibulum sed ornare ante. Proin pulvinar sem sed purus pharetra, vel
-        maximus est consequat. Phasellus non ultricies felis, nec pulvinar dui.
-        Suspendisse varius, orci et placerat vestibulum, quam diam tristique
-        diam, ac facilisis felis nunc accumsan ipsum. Quisque a nibh quis dui
-        elementum suscipit. Aliquam tincidunt enim dolor, et fringilla magna
-        condimentum sed. Aliquam bibendum enim dui, quis semper ex dictum non.
-        Proin venenatis fermentum dapibus. Sed porttitor tellus vitae lacus
-        imperdiet, et maximus turpis vestibulum. Sed vitae tortor nec ligula
-        iaculis porttitor id ut odio. Donec id dolor sem. Curabitur vitae
-        blandit felis. Sed lorem enim, cursus ut aliquet sed, euismod
-        pellentesque dui. Vestibulum id elit sed tortor sollicitudin ullamcorper
-        sed eget odio. Duis egestas luctus leo, ut tincidunt nibh mattis nec.
-        Phasellus elementum, augue nec malesuada dictum, libero risus consequat
-        elit, ac pharetra odio leo hendrerit turpis. Curabitur tempus nibh a
-        lacus placerat, vitae maximus nibh consectetur. Aenean scelerisque justo
-        quis mattis volutpat. In ullamcorper, turpis sit amet consectetur
-        ullamcorper, nunc ex tempus velit, vitae convallis nibh purus sit amet
-        nisl. Suspendisse ligula nulla, egestas sed turpis bibendum, mattis
-        rhoncus metus. Vivamus sit amet finibus ante. Etiam egestas nulla
-        lobortis suscipit laoreet. Suspendisse mollis laoreet mauris, eget
-        venenatis sem hendrerit eu. Sed suscipit quam eros, consequat
-        pellentesque dolor egestas et. Nam luctus semper convallis. Vestibulum
-        laoreet, nisl non semper bibendum, elit sapien volutpat tortor, id
-        dignissim lectus erat vitae tellus. Vivamus aliquam leo ac sollicitudin
-        finibus. Vestibulum eleifend ligula risus, sed eleifend metus commodo
-        scelerisque. Mauris accumsan lacus id nisi bibendum, vel sollicitudin
-        urna pharetra. Mauris facilisis massa porttitor scelerisque mollis.
-        Morbi tempor porta consectetur. Sed ac eleifend ante. Nam accumsan, eros
-        vitae rhoncus vehicula, dolor elit pretium augue, ut dapibus dui nisl
-        non nisl. Ut aliquet commodo leo, non sagittis lorem fringilla eget.
-        Praesent lobortis malesuada molestie. Sed tincidunt lacus sem. Nam
-        posuere felis non dolor dapibus scelerisque. Nam condimentum nisl diam,
-        eget congue lacus imperdiet vel. Nulla facilisi. Aenean tincidunt, ipsum
-        eu finibus rhoncus, tellus massa euismod nibh, non ultrices libero ipsum
-        ut magna. Ut sed ipsum at nulla dapibus viverra. Praesent sed aliquet
-        augue, ac semper nisl. In viverra eleifend sem at blandit. Nunc
-        tincidunt dignissim est, rhoncus egestas urna euismod finibus.
-        Pellentesque nec lectus vitae tortor faucibus placerat. Donec leo purus,
-        ultrices in maximus id, aliquet non est. Maecenas quis facilisis risus.
-        Cras tempus pellentesque nunc nec tempus. Sed a libero est. Vestibulum
-        non enim ex. Cras luctus mauris justo, sit amet gravida elit lobortis
-        quis. Nam malesuada tortor sed nisi consectetur tempus.
+        perferendis doloribus asperiores repellat." 1914 translation by H. lit
+        lobortis quis. Nam malesuada tortor sed nisi consectetur tempus.
       </main>
     </div>
   );

@@ -1,7 +1,24 @@
-.Navbar {
+$textPrimary: #b6b6b6;
+$textSecondary: #ececec;
+$backGroundPrimary: #23232e;
+$backGroundSecondary: #141418;
+.OptionNavbar {
     font-size: 16px;
-    $textPrimary: #b6b6b6;
-    $textSecondary: #ececec;
-    $textPrimary: #23232e;
-    $textSecondary: #141418;
+    background-color: $backGroundPrimary;
+    width: 5rem;
+    height: 100vh;
+    position: fixed;
+}
+.item:last-child{
+    margin-top:auto;
+    
+    }
+.navbarNav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }

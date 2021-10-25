@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 function AnimatedGrid() {
   const { currentUser } = useAuth();
   const plateStyling = {
+    //add diffrent animation after comeback from sidepage
     isGrey: `${!currentUser ? styles.lightPlate : styles.greyPlate}`,
   };
 

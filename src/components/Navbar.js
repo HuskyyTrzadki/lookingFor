@@ -10,6 +10,7 @@ function Navbar({ text, setShowLoginCircle }) {
     <nav className={styles.Navbar}>
       <p className={(styles.Navbar, styles.nameOfWebsite)}>lookingFor</p>
       <p className={styles.Text}>{text}</p>
+
       {currentUser && <LogOutButton setShowLoginCircle={setShowLoginCircle} />}
     </nav>
   );

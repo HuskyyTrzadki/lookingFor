@@ -13,10 +13,10 @@ const App = () => {
         {" "}
         <Switch>
           <Route exact path="/" component={StartingPage} />
-          <Route exact path="/Party" component={Study} />
+          <Route exact path="/Party" component={Party} />
           <Route exact path="/Sport" component={Sport} />
           <Route exact path="/Adventure" component={Adventure} />
-          <Route exact path="/Study" component={Party} />
+          <Route exact path="/Study" component={Study} />
         </Switch>
       </AuthProvider>
     </Router>
