@@ -1,5 +1,5 @@
 import StartingPage from "./components/StartingPage";
-import Study from "./components/Study";
+import STUDY from "./components/STUDY";
 import Sport from "./components/Sport";
 import Adventure from "./components/Adventure";
 import Party from "./components/Party";
@@ -16,7 +16,7 @@ const App = () => {
           <Route exact path="/Party" component={Party} />
           <Route exact path="/Sport" component={Sport} />
           <Route exact path="/Adventure" component={Adventure} />
-          <Route exact path="/Study" component={Study} />
+          <Route exact path="/Study" component={STUDY} />
         </Switch>
       </AuthProvider>
     </Router>
