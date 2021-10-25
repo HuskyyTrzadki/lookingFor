@@ -1,4 +1,4 @@
-import styles from "./Sport.module.scss";
+import styles from "./sport.module.scss";
 import OptionNavbar from "./OptionNavbar";
 import Navbar from "./Navbar";
 

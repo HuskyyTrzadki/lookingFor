@@ -1,4 +1,4 @@
-import styles from "./Adventure.module.scss";
+import styles from "./adventure.module.scss";
 import OptionNavbar from "./OptionNavbar";
 import Navbar from "./Navbar";
 

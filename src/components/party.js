@@ -1,11 +1,11 @@
-import styles from "./Party.module.scss";
+import styles from "./party.module.scss";
 import OptionNavbar from "./OptionNavbar";
 import Navbar from "./Navbar";
 
 const Party = () => {
   return (
     <div className={styles.Party}>
-      <Navbar text={'there will be Parties advertisements here'} />
+      <Navbar text={"there will be Parties advertisements here"} />
 
       <OptionNavbar />
 
