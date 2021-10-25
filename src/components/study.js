@@ -1,4 +1,4 @@
-import styles from "./STUDY.module.scss";
+import styles from "./study.module.scss";
 import OptionNavbar from "./OptionNavbar";
 import Navbar from "./Navbar";
 
