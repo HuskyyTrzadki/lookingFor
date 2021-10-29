@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 const Adventure = () => {
   return (
     <div className={styles.Adventure}>
-      <Navbar text={"there will be Adventure advertisements here"} />
+      <Navbar text={"there will be Adventure advertisements here"}isLogo={false} />
 
       <OptionNavbar />
 

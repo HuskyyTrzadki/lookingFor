@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 const Sport = () => {
   return (
     <div className={styles.Sport}>
-      <Navbar text={"there will be sports advertisements here"} />
+      <Navbar text={"there will be sports advertisements here"} isLogo={false}/>
 
       <OptionNavbar />
 

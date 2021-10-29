@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 const Party = () => {
   return (
     <div className={styles.Party}>
-      <Navbar text={"there will be Parties advertisements here"} />
+      <Navbar text={"there will be Parties advertisements here"}  isLogo={false}/>
 
       <OptionNavbar />
 
