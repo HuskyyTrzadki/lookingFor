@@ -17,7 +17,7 @@ const Circle = ({
 
   return (
     <div className={styles.loginCircle}>
-      <Link to="/logInWithFb">
+      <Link to="/">
         <button id={styles.fb} className={styles.quarter}></button>
       </Link>
       <button

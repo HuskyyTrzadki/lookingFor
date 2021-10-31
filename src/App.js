@@ -1,8 +1,8 @@
 import StartingPage from "./components/StartingPage";
-import study from "./components/study";
-import sport from "./components/sport";
-import adventure from "./components/adventure";
-import party from "./components/party";
+import study from "./components/Study";
+import sport from "./components/Sport";
+import adventure from "./components/Adventure";
+import party from "./components/Party";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { AuthProvider } from "./context/AuthContext";
