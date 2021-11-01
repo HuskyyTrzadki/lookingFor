@@ -3,9 +3,11 @@ import study from "./components/Study";
 import sport from "./components/Sport";
 import adventure from "./components/Adventure";
 import party from "./components/Party";
+import AddNewPostPage from "./components/AddNewPostPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { AuthProvider } from "./context/AuthContext";
+import AddNewPost from "./components/AddNewPostPage";
 const App = () => {
   return (
     <Router>
@@ -13,10 +15,11 @@ const App = () => {
         {" "}
         <Switch>
           <Route exact path="/" component={StartingPage} />
-          <Route exact path="/Party" component={party} />
-          <Route exact path="/Sport" component={sport} />
-          <Route exact path="/Adventure" component={adventure} />
-          <Route exact path="/Study" component={study} />
+          <Route path="/Party" component={party} />
+          <Route path="/Sport" component={sport} />
+          <Route path="/Adventure" component={adventure} />
+          <Route path="/Study" component={study} />
+          <Route path="/AddNewPost/:where" component={AddNewPost} />
         </Switch>
       </AuthProvider>
     </Router>

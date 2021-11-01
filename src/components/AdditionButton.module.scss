@@ -18,11 +18,10 @@
     background-repeat: no-repeat;
     border-radius: 50%;
     transition: background-size 0.5s;
-}
-
-.plus:hover {
-    background-size: 60% 5px, 5px 60%;
-}
-.plus:active {
-    transform: translateY(2px);
+    &:hover {
+        background-size: 60% 5px, 5px 60%;
+    }
+    &:active {
+        transform: translateY(2px);
+    }
 }
