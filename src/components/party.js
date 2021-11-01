@@ -1,6 +1,7 @@
 import styles from "./Party.module.scss";
 import OptionNavbar from "./OptionNavbar";
 import Navbar from "./Navbar";
+import AdditionButton from "./AdditionButton";
 
 const Party = () => {
   return (
@@ -61,6 +62,9 @@ const Party = () => {
         perferendis doloribus asperiores repellat." 1914 translation by H. lit
         lobortis quis. Nam malesuada tortor sed nisi consectetur tempus.
       </main>
+      <div className={styles.AdditionButton}>
+        <AdditionButton />
+      </div>
     </div>
   );
 };

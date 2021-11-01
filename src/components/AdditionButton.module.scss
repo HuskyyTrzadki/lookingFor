@@ -1,0 +1,28 @@
+.plus {
+    display: inline-block;
+    width: 8vw;
+    height: 8vw;
+    @media only screen and (max-width: 600px) {
+        width: 14vw;
+        height: 14vw;
+    }
+
+    z-index: 1;
+    transform-origin: center;
+
+    position: relative;
+
+    background: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff), rgb(0, 102, 255);
+    background-position: center;
+    background-size: 50% 4px, 4px 50%;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    transition: background-size 0.5s;
+}
+
+.plus:hover {
+    background-size: 60% 5px, 5px 60%;
+}
+.plus:active {
+    transform: translateY(2px);
+}
