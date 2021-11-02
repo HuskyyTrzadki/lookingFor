@@ -32,7 +32,6 @@ function OptionNavbar() {
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"
-              className="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x"
             >
               <g className="fa-group">
                 <path
@@ -171,7 +170,6 @@ function OptionNavbar() {
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
-              className="svg-inline--fa fa-moon-stars fa-w-16 fa-7x"
             >
               <g className="fa-group">
                 <path
