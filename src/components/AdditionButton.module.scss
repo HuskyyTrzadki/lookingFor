@@ -24,4 +24,10 @@
     &:active {
         transform: translateY(2px);
     }
+    &:hover::after {
+        content: "ADD NEW POST";
+        position: relative;
+        top: -70%;
+        color: blue;
+    }
 }

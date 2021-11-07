@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import { useState, useMemo, memo } from "react";
+import { useState } from "react";
 import Navbar from "./Navbar";
 import mountain from "../assets/Adventure/mountain.png";
 import motorcycle from "../assets/Adventure/motorcycle.png";
@@ -15,71 +15,50 @@ import volleyball from "../assets/Sport/volleyball.png";
 import math from "../assets/Studying/math.png";
 import styles from "./AddNewPostPage.module.scss";
 import IT from "../assets/Studying/IT.png";
+import CategoryPhoto from "./CategoryPhoto";
 
 const AddNewPost = () => {
   const { where } = useParams();
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  const generateLightColorHex = () => {
-    let color = "#";
-    for (let i = 0; i < 3; i++)
-      color += (
-        "0" +
-        Math.floor(((1 + Math.random()) * Math.pow(16, 2)) / 2).toString(16)
-      ).slice(-2);
-    return color;
-  };
+  function Category(url, name) {
+    this.url = url;
+    this.name = name;
+  }
   const Categories = {
     Sport: [
-      [tennis, "tennis"],
-      [volleyball, "volleyball"],
-      [basketball, "basketball"],
-      [badminton, "badminton"],
-      [football, "football"],
+      new Category(tennis, "tennis"),
+      new Category(volleyball, "volleyball"),
+      new Category(basketball, "basketball"),
+      new Category(badminton, "badminton"),
+      new Category(football, "football"),
     ],
     Party: [
-      [hardParty, "hardParty"],
-      [prom, "prom"],
-      [dancing, "dancing"],
+      new Category(hardParty, "hardParty"),
+      new Category(prom, "prom"),
+      new Category(dancing, "dancing"),
     ],
-    Study: [
-      [math, "math"],
-      [IT, "IT"],
-    ],
+    Study: [new Category(math, "math"), new Category(IT, "IT")],
     Adventure: [
-      [mountain, "mountain"],
-      [motorcycle, "motorycle"],
-      [zaGraniczne, "zaGraniczne"],
+      new Category(mountain, "mountain"),
+      new Category(motorcycle, "motorcycle"),
+      new Category(zaGraniczne, "zaGraniczne"),
     ],
   };
-  const CategoryPhoto = memo(({ photoSrc, onClick }) => {
-    const hexColor = useMemo(() => generateLightColorHex(), []);
 
-    return (
-      <li>
-        <img
-          alt="categoryPhoto"
-          src={photoSrc}
-          style={{
-            "background-color": hexColor,
-          }}
-          onClick={onClick}
-        ></img>
-      </li>
-    );
-  });
-
-  // The rest of your rendering logic
   return (
     <>
       <Navbar text={"AddNewPost"} />
       <h1>pick a cathegory:</h1>
+      {selectedCategory}
       <ul className={styles.CategoriesChoices}>
         {Categories[where].map((item, index) => (
           <CategoryPhoto
-            key={item[index]}
-            photoSrc={item[0]}
-            onClick={() => setSelectedCategory(item[1])}
+            selectedCategory={selectedCategory}
+            photoName={item.name}
+            key={index}
+            photoSrc={item.url}
+            onClick={() => setSelectedCategory(item.name)}
           />
         ))}
       </ul>
