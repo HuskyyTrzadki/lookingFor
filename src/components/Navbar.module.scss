@@ -10,6 +10,9 @@
     grid-template-columns: 1fr 3fr 1fr;
     p {
         font-size: 40%;
+        @media only screen and (max-width: 600px) {
+            font-size: 20%;
+        }
         left: 5%;
         position: relative;
         color: white;
@@ -19,7 +22,7 @@
     }
     .Text {
         @media only screen and (max-width: 600px) {
-            font-size: 30%;
+            font-size: 25%;
         }
         font-size: 40%;
 

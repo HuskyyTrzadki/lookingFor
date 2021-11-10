@@ -26,10 +26,14 @@ const PersonalInfo = ({
   };
   const guessGender = async (name) => {
     const result = await axios.get(`https://api.genderize.io?name=${name}`);
-    setValues({
-      ...values,
-      "gender": result.data.gender,
-    });
+    try {
+      setValues({
+        ...values,
+        gender: result.data.gender,
+      });
+    } catch (err) {
+      alert("error guessing gender");
+    }
   };
   const handleNextAndUploadAvatar = () => {
     console.log("handleNextAndUpload");
