@@ -24,9 +24,9 @@ const AccountInfo = ({
     try {
       setErr("");
       setLoading(true);
-      await console.log("signUP!!");
+      console.log("signUP!!");
       console.log(passwordRef.current.value);
-      signup(passwordRef.current.value);
+      await signup(passwordRef.current.value);
     } catch {
       setErr("Failed to create an account");
     }
