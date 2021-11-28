@@ -16,11 +16,21 @@ import math from "../assets/Studying/math.png";
 import styles from "./AddNewPostPage.module.scss";
 import IT from "../assets/Studying/IT.png";
 import CategoryPhoto from "./CategoryPhoto";
+import { TextField, Box, FormControl } from "@mui/material";
 
 const AddNewPost = () => {
-  const { where } = useParams();
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const limit = 20;
 
+  const { where } = useParams();
+  const [howManyWordsLeft, setHowManyWordsLeft] = useState(limit);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [values, setValues] = useState({
+    category: "",
+    shortDescription: "",
+    longDescription: "",
+    verificationNeeded: true,
+    where,
+  });
   function Category(url, name) {
     this.url = url;
     this.name = name;
@@ -45,23 +55,62 @@ const AddNewPost = () => {
       new Category(zaGraniczne, "zaGraniczne"),
     ],
   };
+  const onTextAreaChange = (e) => {
+    const howManyWordsInShortDecription =
+      values.shortDescription.split(" ").length;
+    if (
+      e.target.name === "shortDescription" &&
+      howManyWordsInShortDecription < limit
+    ) {
+      setValues({
+        ...values,
+        ["shortDescription"]: e.target.value,
+      });
+      setHowManyWordsLeft(limit - howManyWordsInShortDecription);
+    } else if (
+      e.target.name === "longDescription" &&
+      values.longDescription.split(" ").length < 150
+    ) {
+      setValues({
+        ...values,
+        [e.target.name]: e.target.value,
+      });
+    }
+  };
 
   return (
     <>
       <Navbar text={"AddNewPost"} />
-      <h1>pick a cathegory:</h1>
-      {selectedCategory}
-      <ul className={styles.CategoriesChoices}>
-        {Categories[where].map((item, index) => (
-          <CategoryPhoto
-            selectedCategory={selectedCategory}
-            photoName={item.name}
-            key={index}
-            photoSrc={item.url}
-            onClick={() => setSelectedCategory(item.name)}
+      <main>
+        <h1>pick a cathegory:</h1>
+        {selectedCategory}
+        <ul className={styles.CategoriesChoices}>
+          {Categories[where].map((item, index) => (
+            <CategoryPhoto
+              selectedCategory={selectedCategory}
+              photoName={item.name}
+              key={index}
+              photoSrc={item.url}
+              onClick={() => setSelectedCategory(item.name)}
+            />
+          ))}
+        </ul>
+        <div className={styles.textContainer}>
+          <TextField
+            label={`short description, ${howManyWordsLeft} words left`}
+            placeholder="type short description of event"
+            multiline
+            className={styles.xd}
+            onChange={onTextAreaChange}
+            name="shortDescription"
+            color="secondary"
+            value={values.shortDescription}
+            inputProps={{
+              "aria-label": "weight",
+            }}
           />
-        ))}
-      </ul>
+        </div>
+      </main>
     </>
   );
 };

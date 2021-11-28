@@ -1,3 +1,9 @@
 .border {
     outline: 3px solid blue;
+    z-index: 40;
+}
+
+.CategoryPhoto {
+    position: relative;
+    z-index: 0;
 }

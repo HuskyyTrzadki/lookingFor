@@ -12,7 +12,7 @@ const MailLoginForm = ({ setShowLoginForm, setShowLoginCircle }) => {
   const passwordRef = useRef();
   const modalRef = useRef();
   const [open, setOpen] = useState(false);
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState("");
 
@@ -66,7 +66,6 @@ const MailLoginForm = ({ setShowLoginForm, setShowLoginCircle }) => {
             className={styles.Input}
             name="password"
             id="password"
-            onChange={(event) => {}}
           />
           <span></span>
           <label>Password</label>
@@ -86,7 +85,12 @@ const MailLoginForm = ({ setShowLoginForm, setShowLoginCircle }) => {
         <div className={styles.signup_link}>
           <h6>don't have account yet? register here!</h6>
         </div>
-        <BlueButton disabled={loading} event={handleSubmit} content="log in" isBig="true" />
+        <BlueButton
+          disabled={loading}
+          event={handleSubmit}
+          content="log in"
+          isBig="true"
+        />
       </form>
     </div>
   );
