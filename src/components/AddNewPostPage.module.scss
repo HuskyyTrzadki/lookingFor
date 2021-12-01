@@ -13,14 +13,30 @@ body {
     width: 100%;
     margin: 0;
 }
-.xd {
-    width: 50%;
+input {
+    opacity: 0;
+    width: 100%;
 }
-.textContainer {
-    display: flex;
+
+.text {
+    background: linear-gradient(to right, rgb(0, 102, 255), rgb(153, 204, 255));
+
+    width: 80%;
+}
+.auth {
     justify-content: center;
-}
-p {
+
+    display: flex;
+    .lockImgContainer {
+        max-width: 10%;
+        background: yellow;
+
+        .photo {
+            vertical-align: bottom;
+        }
+    }
+    .textContainer {
+    }
 }
 
 main {

@@ -9,6 +9,7 @@ import hardParty from "../assets/Partying/hardParty.png";
 import dancing from "../assets/Partying/dancing.png";
 import badminton from "../assets/Sport/badminton.png";
 import basketball from "../assets/Sport/basketball.png";
+import lock from "../assets/lock.png";
 import football from "../assets/Sport/football.png";
 import tennis from "../assets/Sport/tennis.png";
 import volleyball from "../assets/Sport/volleyball.png";
@@ -16,19 +17,36 @@ import math from "../assets/Studying/math.png";
 import styles from "./AddNewPostPage.module.scss";
 import IT from "../assets/Studying/IT.png";
 import CategoryPhoto from "./CategoryPhoto";
-import { TextField, Box, FormControl } from "@mui/material";
+import {
+  TextField,
+  Box,
+  FormControl,
+  createTheme,
+  Radio,
+  RadioGroup,
+  FormLabel,
+  FormControlLabel,
+} from "@mui/material";
+import { red } from "@mui/material/colors";
 
 const AddNewPost = () => {
-  const limit = 20;
+  const theme = createTheme({
+    palette: {
+      secondary: {
+        main: "#42a5f5",
+      },
+    },
+  });
+  const limit = 120;
 
   const { where } = useParams();
-  const [howManyWordsLeft, setHowManyWordsLeft] = useState(limit);
+  const [howManyCharactersLeft, setHowManyCharactersLeft] = useState(limit);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [values, setValues] = useState({
     category: "",
     shortDescription: "",
     longDescription: "",
-    verificationNeeded: true,
+    authentication: true,
     where,
   });
   function Category(url, name) {
@@ -56,25 +74,23 @@ const AddNewPost = () => {
     ],
   };
   const onTextAreaChange = (e) => {
-    const howManyWordsInShortDecription =
-      values.shortDescription.split(" ").length;
-    if (
-      e.target.name === "shortDescription" &&
-      howManyWordsInShortDecription < limit
-    ) {
+    if (e.target.name === "shortDescription") {
       setValues({
         ...values,
         ["shortDescription"]: e.target.value,
       });
-      setHowManyWordsLeft(limit - howManyWordsInShortDecription);
-    } else if (
-      e.target.name === "longDescription" &&
-      values.longDescription.split(" ").length < 150
-    ) {
+      setHowManyCharactersLeft(limit - values.shortDescription.length);
+    } else if (e.target.name === "longDescription") {
+      setValues({
+        ...values,
+        ["longDescription"]: e.target.value,
+      });
+    } else {
       setValues({
         ...values,
         [e.target.name]: e.target.value,
       });
+      console.log(values);
     }
   };
 
@@ -97,18 +113,60 @@ const AddNewPost = () => {
         </ul>
         <div className={styles.textContainer}>
           <TextField
-            label={`short description, ${howManyWordsLeft} words left`}
+            sx={{ border: "2.5vw solid white" }}
+            label={`short description, ${howManyCharactersLeft} chars left`}
             placeholder="type short description of event"
             multiline
-            className={styles.xd}
+            className={styles.text}
             onChange={onTextAreaChange}
             name="shortDescription"
-            color="secondary"
+            color="primary"
             value={values.shortDescription}
-            inputProps={{
-              "aria-label": "weight",
-            }}
+            inputProps={{ maxLength: limit + 1 }}
           />
+          <TextField
+            sx={{ border: "2.5vw solid white" }}
+            label={`long description `}
+            placeholder="type short description of event"
+            multiline
+            className={styles.text}
+            onChange={onTextAreaChange}
+            name="longDescription"
+            color="primary"
+            value={values.longDescription}
+            inputProps={{ maxLength: 700 }}
+          />
+        </div>
+        <div className={styles.auth}>
+          <div className={styles.lockImgContainer}></div>
+
+          <FormControl component="fieldset" sx={{ marginTop: "10px" }}>
+            <FormLabel
+              sx={{ textAlign: "left", color: "white", marginBottom: "10px" }}
+              component="legend"
+            >
+              Gender
+            </FormLabel>
+            <RadioGroup
+              aria-label="gender"
+              name="controlled-radio-buttons-group"
+              value={values.authentication}
+              onChange={onTextAreaChange}
+            >
+              <FormControlLabel
+                value={false}
+                control={<Radio />}
+                label="with auth (recommended)"
+                name="authentication"
+              />
+              <FormControlLabel
+                value={true}
+                control={<Radio />}
+                label="without auth"
+                name="authentication"
+              />
+            </RadioGroup>
+          </FormControl>
         </div>
       </main>
     </>
