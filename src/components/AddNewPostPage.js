@@ -37,7 +37,7 @@ const AddNewPost = () => {
       },
     },
   });
-  const limit = 120;
+  const limit = 40;
 
   const { where } = useParams();
   const [howManyCharactersLeft, setHowManyCharactersLeft] = useState(limit);
@@ -138,11 +138,9 @@ const AddNewPost = () => {
           />
         </div>
         <div className={styles.auth}>
-          <div className={styles.lockImgContainer}></div>
-
           <FormControl component="fieldset" sx={{ marginTop: "10px" }}>
             <FormLabel
-              sx={{ textAlign: "left", color: "white", marginBottom: "10px" }}
+              sx={{ textAlign: "center", color: "white", marginBottom: "10px" }}
               component="legend"
             >
               Gender
