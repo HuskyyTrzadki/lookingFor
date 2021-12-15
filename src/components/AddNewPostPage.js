@@ -1,5 +1,7 @@
 import { useParams } from "react-router";
 import { useState } from "react";
+import Button from '@mui/material/Button';
+
 import Navbar from "./Navbar";
 import mountain from "../assets/Adventure/mountain.png";
 import motorcycle from "../assets/Adventure/motorcycle.png";
@@ -9,6 +11,7 @@ import hardParty from "../assets/Partying/hardParty.png";
 import dancing from "../assets/Partying/dancing.png";
 import badminton from "../assets/Sport/badminton.png";
 import basketball from "../assets/Sport/basketball.png";
+import CustomizedSlider from "./Slider";
 import lock from "../assets/lock.png";
 import football from "../assets/Sport/football.png";
 import tennis from "../assets/Sport/tennis.png";
@@ -17,6 +20,7 @@ import math from "../assets/Studying/math.png";
 import styles from "./AddNewPostPage.module.scss";
 import IT from "../assets/Studying/IT.png";
 import CategoryPhoto from "./CategoryPhoto";
+import OptionNavbar from "./OptionNavbar";
 import {
   TextField,
   Box,
@@ -41,13 +45,14 @@ const AddNewPost = () => {
 
   const { where } = useParams();
   const [howManyCharactersLeft, setHowManyCharactersLeft] = useState(limit);
-  const [selectedCategory, setSelectedCategory] = useState("");
   const [values, setValues] = useState({
     category: "",
     shortDescription: "",
     longDescription: "",
     authentication: true,
+    nrOfPeople:5,
     where,
+
   });
   function Category(url, name) {
     this.url = url;
@@ -73,41 +78,33 @@ const AddNewPost = () => {
       new Category(zaGraniczne, "zaGraniczne"),
     ],
   };
-  const onTextAreaChange = (e) => {
-    if (e.target.name === "shortDescription") {
-      setValues({
-        ...values,
-        ["shortDescription"]: e.target.value,
-      });
-      setHowManyCharactersLeft(limit - values.shortDescription.length);
-    } else if (e.target.name === "longDescription") {
-      setValues({
-        ...values,
-        ["longDescription"]: e.target.value,
-      });
-    } else {
+  const onValueChange = (e) => {
       setValues({
         ...values,
         [e.target.name]: e.target.value,
       });
       console.log(values);
     }
-  };
-
+  
   return (
     <>
-      <Navbar text={"AddNewPost"} />
+      <Navbar text={"AddNewPost"} isLogo={false}/>
+      <OptionNavbar/>
+
       <main>
-        <h1>pick a cathegory:</h1>
-        {selectedCategory}
+        <h1>pick a category:</h1>
+        {values.selectedCategory}
         <ul className={styles.CategoriesChoices}>
           {Categories[where].map((item, index) => (
             <CategoryPhoto
-              selectedCategory={selectedCategory}
+              values={values}
               photoName={item.name}
               key={index}
               photoSrc={item.url}
-              onClick={() => setSelectedCategory(item.name)}
+              onClick={() =>  setValues({
+                ...values,
+                "category": item.name,
+              })}
             />
           ))}
         </ul>
@@ -118,7 +115,7 @@ const AddNewPost = () => {
             placeholder="type short description of event"
             multiline
             className={styles.text}
-            onChange={onTextAreaChange}
+            onChange={onValueChange}
             name="shortDescription"
             color="primary"
             value={values.shortDescription}
@@ -130,7 +127,7 @@ const AddNewPost = () => {
             placeholder="type short description of event"
             multiline
             className={styles.text}
-            onChange={onTextAreaChange}
+            onChange={onValueChange}
             name="longDescription"
             color="primary"
             value={values.longDescription}
@@ -149,7 +146,7 @@ const AddNewPost = () => {
               aria-label="gender"
               name="controlled-radio-buttons-group"
               value={values.authentication}
-              onChange={onTextAreaChange}
+              onChange={onValueChange}
             >
               <FormControlLabel
                 value={false}
@@ -165,9 +162,17 @@ const AddNewPost = () => {
               />
             </RadioGroup>
           </FormControl>
+          <CustomizedSlider type="nrOfPeopleNeeded"handleChangeInNrOfPeople={onValueChange}/>
+
+          
         </div>
+        <Button variant="contained" color="success" style={{position: 'absolute', left:"40%"}} >
+            ADD
+          </Button>
+        
+
       </main>
     </>
-  );
-};
+  )
+          }
 export default AddNewPost;

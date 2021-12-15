@@ -2,7 +2,7 @@ import { useState } from "react";
 import BlueButton from "./BlueButton";
 import { useAuth } from "../context/AuthContext";
 import styles from "./MailRegisterForm.module.scss";
-import AgeSlider from "./AgeSlider";
+import Slider from "./Slider";
 import GenderPicker from "./GenderPicker";
 import axios from "axios";
 import AvatarInput from "./AvatarInput";
@@ -92,7 +92,7 @@ const PersonalInfo = ({
           <label>lastName</label>
         </div>
 
-        <AgeSlider />
+        <Slider type="age" />
 
         <GenderPicker />
         <AvatarInput handleImage={handleImage} />

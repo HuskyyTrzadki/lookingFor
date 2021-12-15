@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import styles from "./OptionNavbar.module.scss";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link, useLocation } from "react-router-dom";
 
 function OptionNavbar() {
+  const location = useLocation();
+
   useEffect(() => {
     const script = document.createElement("script");
 
@@ -69,7 +71,7 @@ function OptionNavbar() {
             <span className={styles.linkText}>groups/chats</span>
           </Link>
         </li>
-        {window.location.pathname !== "/Sport" && (
+        {location.pathname!== '/Sport' && (
           <li class={styles.navItem}>
             <Link className={styles.navLink} to="/Sport">
               <svg
@@ -91,9 +93,9 @@ function OptionNavbar() {
             </Link>
           </li>
         )}
-        {window.location.pathname !== "/Party" && (
+        {location.pathname !== "/Party" && (
           <li className={styles.navItem}>
-            <Link className={styles.navLink} to="Party">
+            <Link className={styles.navLink} to="/Party">
               <svg
                 aria-hidden="true"
                 focusable="false"
@@ -113,9 +115,9 @@ function OptionNavbar() {
             </Link>
           </li>
         )}
-        {window.location.pathname !== "/Study" && (
+        {location.pathname!== "/Study" && (
           <li className={styles.navItem}>
-            <Link className={styles.navLink} to="Study">
+            <Link className={styles.navLink} to="/Study">
               <svg
                 aria-hidden="true"
                 focusable="false"
@@ -135,9 +137,9 @@ function OptionNavbar() {
             </Link>
           </li>
         )}
-        {window.location.pathname !== "/Adventure" && (
+        {location.pathname !== "/Adventure" && (
           <li className={styles.navItem}>
-            <Link className={styles.navLink} to="Adventure">
+            <Link className={styles.navLink} to="/Adventure">
               <svg
                 aria-hidden="true"
                 focusable="false"
